@@ -41,19 +41,19 @@
            <p class="font-bold text-xl">Popover vs Modal vs Popup</p>
         </header>
 
-        <main>
+        <main class="pb-20">
 
             <section class="popover">
 
 
-test
+
 
             </section>
 
             <section class="dialog">
 
-    tes
     
+
             </section>
 
             <section class="popup">
@@ -74,7 +74,7 @@ test
 
                         <div class="first-popover relative">
                             <button popovertarget="one" class="cursor-pointer">Εμφάνιση πληροφοριών χωρίς ανανέωση σελίδας</button>
-                            <div popover id="one" class="absolute left-0 top-full mt-2 w-80 bg-white p-6 rounded shadow-lg z-50">
+                            <div popover id="one" class="absolute left-0 top-1/3 mt-2 w-80 bg-white p-6 rounded shadow-lg z-50">
                                 <p>Με ένα popover μπορείς να δείξεις πρόσθετο περιεχόμενο (όπως βοήθεια, οδηγίες ή λεπτομέρειες προϊόντος) χωρίς να αλλάξει η σελίδα ή να ανοίξει νέο παράθυρο.</p>
                             </div>
                         </div>
@@ -161,54 +161,12 @@ test
 
         </main>
 
-        <footer class="footer fixed bottom-0 p-8 w-full left-0 right-0" x-data="{ year: new Date().getFullYear() }" id="footer">
+        <footer class="footer fixed bg-mainB bottom-0 p-8 w-full left-0 right-0" x-data="{ year: new Date().getFullYear() }" id="footer">
             <p>© <span x-text="year" class="text-black"></span> All rights reserved.</p>
         </footer>
 
         <!-- Custom js and swiper cdn-->
         <script type="text/javascript">
-            var pageElement = document.getElementById("header");
-            var stickyLogo = document.querySelector(".logo .logo-image-scroll");
-            var logo = document.querySelector(".logo .logo-image");
-            var headerPadding = document.querySelector("#header .header-inner");
-            if (pageElement !== null) {
-                document.addEventListener("scroll", function () {
-                    window.requestAnimationFrame(function () {
-                        if (window.scrollY > 100) {
-                            pageElement.classList.add("scrolled");
-
-                            pageElement.classList.add("fixed");
-                            pageElement.classList.remove("absolute");
-
-                            stickyLogo.classList.remove("hidden");
-                            logo.classList.add("hidden");
-
-                            headerPadding.classList.remove("md:pt-9");
-                        } else {
-                            pageElement.classList.remove("scrolled");
-
-                            pageElement.classList.add("absolute");
-                            pageElement.classList.remove("fixed");
-
-                            stickyLogo.classList.add("hidden");
-                            logo.classList.remove("hidden");
-
-                            headerPadding.classList.add("md:pt-9");
-                        }
-                        const imageContainers = document.querySelectorAll(".image-container");
-                        if (imageContainers !== null) {
-                            imageContainers.forEach((imageContainer) => {
-                                const rect = imageContainer.getBoundingClientRect();
-                                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                                    imageContainer.classList.add("in-view");
-                                } else {
-                                    imageContainer.classList.remove("in-view");
-                                }
-                            });
-                        }
-                    });
-                });
-            }
         </script>
         <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
         

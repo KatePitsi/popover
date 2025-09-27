@@ -4,9 +4,9 @@ module.exports = {
     content: ["./**/*.html"],
     theme: {
         extend: {
-            fontFamily: {
-                // editorialBase: ["EditorialNew"]
-            },
+            // fontFamily: {
+            //     // editorialBase: ["EditorialNew"]
+            // },
             colors: {
                 body: "#3C3D46",
                 border: "#e5e7eb",
