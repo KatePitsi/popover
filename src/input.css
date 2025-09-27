@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @font-face {
+    font-family: 'EditorialNew';
+    src: url('./fonts/EditorialNew-Regural.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+} */
+
+@layer components {
+    /* section {
+        @apply py-10 md:py-20 relative;
+    } */
+}
+
+@layer base {
+    /* .out {
+      -webkit-text-stroke: 1px white;
+    } */
+}

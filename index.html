@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+    <head>
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Test Katerina</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+        <!-- SEO -->
+        <link rel="canonical" href="https://example.com/" />
+        <link rel="alternate" hreflang="en" href="https://example.com/" />
+        <link rel="alternate" hreflang="x-default" href="https://example.com/" />
+
+        <meta name="description" content="Ex nec senectus per vulputate pretium tellus phasellus amet mauris fames aptent erat dignissim mi" />
+        <meta name="keywords" content="test, test, test" />
+        <meta name="robots" content="noindex, nofollow, max-image-preview:large, noodp, noydir, max-snippet:-1, max-video-preview:-1">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/logo.png.webp" />
+        <link rel="icon" type="image/x-icon" href="img/favico.ico" />
+
+        <meta property="og:title" content="Senectus tellus habitant" />
+        <meta property="og:description" content="Cursus curabitur fusce quam nunc maecenas ipsum ornare etiam nam duis." />
+        <meta property="og:image" content="https://example.com/img/hero.jpg.webp" />
+        <meta property="og:url" content="https://example.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Senectus tellus habitant" />
+
+        <!-- <link fetchpriority="high" rel="preload" href="img/hero.jpg.webp" as="image" /> -->
+
+        <!-- Js -->
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    </head>
+
+    <body class="antialiased bg-mainB px-6" id="body">
+
+         <header class="header p-8" id="header">
+           <p class="font-bold text-xl">Popover vs Modal vs Popup</p>
+        </header>
+
+        <main>
+
+            <section class="popover">
+
+
+
+
+            </section>
+
+            <section class="dialog">
+
+    
+
+            </section>
+
+            <section class="popup">
+
+
+            </section>
+
+            <hr class="my-8">
+
+            <section class="details w-full max-w-7xl mx-auto my-20 px-12">
+
+                <div class="why-used-popover relative px-4 mb-14">
+                    
+                    <p class="font-bold text-xl my-4">Γιατί popover?</p>
+                    <p class="">Ο λόγος που μπορείς να χρησιμοποιήσεις ένα popover είναι κυρίως για βελτιωμένη εμπειρία χρήστη (UX) και καλύτερη διαχείριση πληροφοριών στη σελίδα.</p>
+                    
+                    <div class="flex flex-row gap-8 justify-between relative my-8">
+
+                        <div class="first-popover relative">
+                            <button popovertarget="one" class="cursor-pointer">Εμφάνιση πληροφοριών χωρίς ανανέωση σελίδας</button>
+                            <div popover id="one" class="absolute left-0 top-full mt-2 w-80 bg-white p-6 rounded shadow-lg z-50">
+                                <p>Με ένα popover μπορείς να δείξεις πρόσθετο περιεχόμενο (όπως βοήθεια, οδηγίες ή λεπτομέρειες προϊόντος) χωρίς να αλλάξει η σελίδα ή να ανοίξει νέο παράθυρο.</p>
+                            </div>
+                        </div>
+                        
+                        <p>Εστίαση στο context</p>
+                        <p>Δυνατότητα αλληλεπίδρασης</p>
+                        <p>Μικρότερο “οπτικό φορτίο”</p>
+                        <p>Καλύτερος έλεγχος για responsive σχεδιασμό</p>
+                    </div>
+                </div>
+
+                <div x-data="
+                    { rows: [
+                            {
+                                feature: 'Τρόπος εμφάνισης',
+                                popover: 'Μέσα στη σελίδα, σαν overlay πάνω από το περιεχόμενο',
+                                modal: 'Μέσα στη σελίδα, σαν overlay, αλλά μπλοκάρει την υπόλοιπη αλληλεπίδραση',
+                                popup: 'Σε νέο παράθυρο/καρτέλα του browser'
+                            },
+                            {
+                                feature: 'HTML/DOM',
+                                popover: 'Στοιχείο DOM (π.χ. <div popover>)',
+                                modal: 'Στοιχείο DOM (π.χ. <dialog>)',
+                                popup: 'Ξεχωριστό παράθυρο, εκτός DOM'
+                            },
+                            {
+                                feature: 'Έλεγχος',
+                                popover: 'Με attributes ή JS (showPopover)',
+                                modal: 'Με JS (showModal, close)',
+                                popup: 'Με JS (window.open, window.close)'
+                            },
+                            {
+                                feature: 'Κλείσιμο',
+                                popover: 'Light dismiss (κλικ έξω, Esc) αν είναι auto',
+                                modal: 'Συνήθως με explicit action',
+                                popup: 'Από χρήστη ή με JS'
+                            },
+                            {
+                                feature: 'Εμπειρία χρήστη',
+                                popover: 'Ελαφρύ, μη-παρεμβατικό',
+                                modal: 'Κλειδώνει την υπόλοιπη σελίδα',
+                                popup: 'Ξεχωριστό, σαν άλλη εφαρμογή'
+                            },
+                            {
+                                feature: 'Χρήσεις',
+                                popover: 'Dropdowns, tooltips, info panels',
+                                modal: 'Confirm dialogs, φόρμες',
+                                popup: 'Login flows, τρίτες υπηρεσίες'
+                            },
+                            {
+                                feature: 'Popup blockers',
+                                popover: 'Δεν μπλοκάρονται',
+                                modal: 'Δεν μπλοκάρονται',
+                                popup: 'Συχνά μπλοκάρονται'
+                            },
+                            {
+                                feature: 'Προσβασιμότητα',
+                                popover: 'Χρειάζεται χειρισμό (ARIA) αλλά έχει στήριξη',
+                                modal: 'Υποστηρίζεται καλά (ειδικά <dialog>)',
+                                popup: 'Εξαρτάται από το περιεχόμενο'
+                            }
+                        ]
+                    }" 
+                    class="space-y-4">
+
+                    <div class="grid grid-cols-4 gap-8 p-4 border-b border-border">
+                    <p class="font-bold text-xl">Χαρακτηριστικό</p>
+                    <p class="font-bold text-xl">Popover</p>
+                    <p class="font-bold text-xl">Modal</p>
+                    <p class="font-bold text-xl">Popup</p>
+                    </div>
+
+                    <template x-for="(row, i) in rows" :key="i">
+                    <div class="grid grid-cols-4 gap-8 p-4 border-b border-border last:border-0">
+                        <p class="text-left font-bold" x-text="row.feature"></p>
+                        <p class="text-left" x-text="row.popover"></p>
+                        <p class="text-left" x-text="row.modal"></p>
+                        <p class="text-left" x-text="row.popup"></p>
+                    </div>
+                    </template>
+                </div>
+                
+            </section>
+
+        </main>
+
+        <footer class="footer fixed bottom-0 p-8 w-full left-0 right-0" x-data="{ year: new Date().getFullYear() }" id="footer">
+            <p>© <span x-text="year" class="text-black"></span> All rights reserved.</p>
+        </footer>
+
+        <!-- Custom js and swiper cdn-->
+        <script type="text/javascript">
+            var pageElement = document.getElementById("header");
+            var stickyLogo = document.querySelector(".logo .logo-image-scroll");
+            var logo = document.querySelector(".logo .logo-image");
+            var headerPadding = document.querySelector("#header .header-inner");
+            if (pageElement !== null) {
+                document.addEventListener("scroll", function () {
+                    window.requestAnimationFrame(function () {
+                        if (window.scrollY > 100) {
+                            pageElement.classList.add("scrolled");
+
+                            pageElement.classList.add("fixed");
+                            pageElement.classList.remove("absolute");
+
+                            stickyLogo.classList.remove("hidden");
+                            logo.classList.add("hidden");
+
+                            headerPadding.classList.remove("md:pt-9");
+                        } else {
+                            pageElement.classList.remove("scrolled");
+
+                            pageElement.classList.add("absolute");
+                            pageElement.classList.remove("fixed");
+
+                            stickyLogo.classList.add("hidden");
+                            logo.classList.remove("hidden");
+
+                            headerPadding.classList.add("md:pt-9");
+                        }
+                        const imageContainers = document.querySelectorAll(".image-container");
+                        if (imageContainers !== null) {
+                            imageContainers.forEach((imageContainer) => {
+                                const rect = imageContainer.getBoundingClientRect();
+                                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                                    imageContainer.classList.add("in-view");
+                                } else {
+                                    imageContainer.classList.remove("in-view");
+                                }
+                            });
+                        }
+                    });
+                });
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+        
+    </body>
+
+</html>
