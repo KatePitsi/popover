@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
     <head>
-
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,7 +15,7 @@
 
         <meta name="description" content="Ex nec senectus per vulputate pretium tellus phasellus amet mauris fames aptent erat dignissim mi" />
         <meta name="keywords" content="test, test, test" />
-        <meta name="robots" content="noindex, nofollow, max-image-preview:large, noodp, noydir, max-snippet:-1, max-video-preview:-1">
+        <meta name="robots" content="noindex, nofollow, max-image-preview:large, noodp, noydir, max-snippet:-1, max-video-preview:-1" />
         <link rel="icon" type="image/png" sizes="32x32" href="img/logo.png.webp" />
         <link rel="icon" type="image/x-icon" href="img/favico.ico" />
 
@@ -28,65 +26,140 @@
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Senectus tellus habitant" />
 
-        <!-- <link fetchpriority="high" rel="preload" href="img/hero.jpg.webp" as="image" /> -->
-
         <!-- Js -->
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
     </head>
 
     <body class="antialiased bg-mainB px-6" id="body">
-
-         <header class="header p-8" id="header">
-           <p class="font-bold text-xl">Popover vs Modal vs Popup</p>
+        <header class="header p-8" id="header">
+            <p class="font-bold text-xl">Exaples popover & dialog</p>
         </header>
 
-        <main class="pb-20">
-
-            <section class="popover">
-
-
-
-
+        <main class="pb-20 px-8 relative">
+            <!-- 1. Simple Dropdown -->
+            <section class="items">
+                <h2 class="text-lg font-bold mb-4">1. Απλό Dropdown Menu</h2>
+                <button popovertarget="menu-popover" class="main-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" /></svg>
+                     Menu
+                </button>
+                <nav id="menu-popover" popover class="bg-white shadow absolute top-0 left-0 right-0 bottom-[50%] p-4 w-full max-w-md">
+                    <ul class="space-y-2">
+                        <li><a href="#" class="">Home</a></li>
+                        <li><a href="#" class="">About</a></li>
+                        <li><a href="#" class="">Services</a></li>
+                    </ul>
+                </nav>
             </section>
 
-            <section class="dialog">
+            <!-- 2. Mega Menu με fallback -->
+            <section x-data="{ open: false }" class="relative items">
+                <h2 class="text-lg font-bold mb-4">2. Mega Menu</h2>
 
-    
+                <button @click="open = !open; $refs.mega.togglePopover?.()" class="main-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="size-6 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+                    Mega Menu
+                </button>
 
+                <div id="mega-popover" x-ref="mega" popover="open" x-show="open" @click.outside="open=false" class="absolute mt-2 left-0 bg-white shadow-2xl rounded-lg p-6 w-[600px] grid grid-cols-3 gap-8 z-50">
+                    <div>
+                        <h3 class="font-bold mb-2">Products</h3>
+                        <ul class="space-y-1">
+                            <li><a href="#">Laptops</a></li>
+                            <li><a href="#">Phones</a></li>
+                            <li><a href="#">Accessories</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold mb-2">Resources</h3>
+                        <ul class="space-y-1">
+                            <li><a href="#">Docs</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">Tutorials</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold mb-2">Company</h3>
+                        <ul class="space-y-1">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
             </section>
 
-            <section class="popup">
-
-
+            <!-- 3. Tooltip -->
+            <section class="items">
+                <h2 class="text-lg font-bold mb-4">3. Tooltip</h2>
+                <button popovertarget="tooltip-popover" class="main-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                    </svg>
+                </button>
+                <div id="tooltip-popover" popover class="bg-black text-white text-sm px-3 py-2 rounded absolute top-1/2 left-0 right-0 mt-2">
+                    Αυτό είναι tooltip χωρίς JS!
+                </div>
             </section>
 
-            <hr class="my-8">
+            <!-- 4. Cart Preview -->
+            <section class="items">
+                <h2 class="text-lg font-bold mb-4">4. Cart Preview (Popover)</h2>
 
-            <section class="details w-full max-w-7xl mx-auto my-20 px-12">
+                <button popovertarget="cart-popover" class="main-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="size-6 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" /></svg>
+                    Cart (2)
+                </button>
 
-                <div class="why-used-popover relative px-4 mb-14">
-                    
-                    <p class="font-bold text-xl my-4">Γιατί popover?</p>
-                    <p class="">Ο λόγος που μπορείς να χρησιμοποιήσεις ένα popover είναι κυρίως για βελτιωμένη εμπειρία χρήστη (UX) και καλύτερη διαχείριση πληροφοριών στη σελίδα.</p>
-                    
-                    <div class="flex flex-row gap-8 justify-between relative my-8">
+                <div id="cart-popover" popover class="bg-white shadow rounded p-4 w-72">
+                    <p class="font-bold mb-2">Your cart</p>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between"><span>Laptop</span><span>$999</span></li>
+                        <li class="flex justify-between"><span>Mouse</span><span>$49</span></li>
+                    </ul>
+                    <button class="mt-4 w-full bg-yellow-600 text-white py-2 rounded">
+                        Checkout
+                    </button>
+                </div>
+            </section>
 
-                        <div class="first-popover relative">
-                            <button popovertarget="one" class="cursor-pointer">Εμφάνιση πληροφοριών χωρίς ανανέωση σελίδας</button>
-                            <div popover id="one" class="absolute left-0 top-1/3 mt-2 w-80 bg-white p-6 rounded shadow-lg z-50">
-                                <p>Με ένα popover μπορείς να δείξεις πρόσθετο περιεχόμενο (όπως βοήθεια, οδηγίες ή λεπτομέρειες προϊόντος) χωρίς να αλλάξει η σελίδα ή να ανοίξει νέο παράθυρο.</p>
-                            </div>
-                        </div>
-                        
-                        <p>Εστίαση στο context</p>
-                        <p>Δυνατότητα αλληλεπίδρασης</p>
-                        <p>Μικρότερο “οπτικό φορτίο”</p>
-                        <p>Καλύτερος έλεγχος για responsive σχεδιασμό</p>
+            <!-- 4. Dialog -->
+            <section class="items">
+                <h2 class="text-lg font-bold mb-4">5. Modal Dialog (Native)</h2>
+                <button onclick="document.getElementById('myDialog').showModal()" class="main-btn">
+                    Open Dialog
+                </button>
+                <dialog id="myDialog" class="p-6 rounded shadow-lg">
+                    <h2 class="text-xl font-bold mb-2">Native Dialog</h2>
+                    <p class="mb-4">Αυτό είναι modal χωρίς custom JS libraries 🎉</p>
+                    <form method="dialog" class="flex justify-end">
+                        <button class="px-4 py-2 bg-gray-300 rounded mr-2">Cancel</button>
+                        <button class="px-4 py-2 bg-purple-600 text-white rounded">OK</button>
+                    </form>
+                </dialog>
+            </section>
+
+            <hr class="my-8" />
+
+            <section class="details w-full max-w-7xl mx-auto my-20">
+
+                <div class="why-used-popover grid grid-cols-1 md:grid-cols-2 gap-12 content-center relative my-20">
+                    <div class="left">
+                        <p class="font-bold text-xl pb-2">Γιατί popover?</p>
+                        <p class="">Ο λόγος που μπορείς να χρησιμοποιήσεις ένα popover είναι κυρίως για βελτιωμένη εμπειρία χρήστη (UX) και καλύτερη διαχείριση πληροφοριών στη σελίδα.</p>
+                    </div>
+                    <div class="right">
+                        <p>1. Εμφάνιση πληροφοριών χωρίς ανανέωση σελίδας</p>
+                        <p>2. Εστίαση στο context</p>
+                        <p>3. Δυνατότητα αλληλεπίδρασης</p>
+                        <p>4. Μικρότερο “οπτικό φορτίο”</p>
                     </div>
                 </div>
 
-                <div x-data="
+                <div class=""
+                    x-data="
                     { rows: [
                             {
                                 feature: 'Τρόπος εμφάνισης',
@@ -96,8 +169,8 @@
                             },
                             {
                                 feature: 'HTML/DOM',
-                                popover: 'Στοιχείο DOM (π.χ. <div popover>)',
-                                modal: 'Στοιχείο DOM (π.χ. <dialog>)',
+                                popover: 'Στοιχείο DOM (π.χ. &lt;div popover&gt;)',
+                                modal: 'Στοιχείο DOM (π.χ. &lt;dialog&gt;)',
                                 popup: 'Ξεχωριστό παράθυρο, εκτός DOM'
                             },
                             {
@@ -122,7 +195,7 @@
                                 feature: 'Χρήσεις',
                                 popover: 'Dropdowns, tooltips, info panels',
                                 modal: 'Confirm dialogs, φόρμες',
-                                popup: 'Login flows, τρίτες υπηρεσίες'
+                                popup: 'Login flows, third-party content'
                             },
                             {
                                 feature: 'Popup blockers',
@@ -133,32 +206,30 @@
                             {
                                 feature: 'Προσβασιμότητα',
                                 popover: 'Χρειάζεται χειρισμό (ARIA) αλλά έχει στήριξη',
-                                modal: 'Υποστηρίζεται καλά (ειδικά <dialog>)',
+                                modal: 'Υποστηρίζεται (ειδικά &lt;dialog&gt;)',
                                 popup: 'Εξαρτάται από το περιεχόμενο'
                             }
                         ]
-                    }" 
-                    class="space-y-4">
-
+                    }"
+                    class="space-y-4"
+                >
                     <div class="grid grid-cols-4 gap-8 p-4 border-b border-border">
-                    <p class="font-bold text-xl">Χαρακτηριστικό</p>
-                    <p class="font-bold text-xl">Popover</p>
-                    <p class="font-bold text-xl">Modal</p>
-                    <p class="font-bold text-xl">Popup</p>
+                        <p class="font-bold text-xl">Χαρακτηριστικό</p>
+                        <p class="font-bold text-xl">Popover</p>
+                        <p class="font-bold text-xl">Dialog</p>
+                        <p class="font-bold text-xl">Popup</p>
                     </div>
 
                     <template x-for="(row, i) in rows" :key="i">
-                    <div class="grid grid-cols-4 gap-8 p-4 border-b border-border last:border-0">
-                        <p class="text-left font-bold" x-text="row.feature"></p>
-                        <p class="text-left" x-text="row.popover"></p>
-                        <p class="text-left" x-text="row.modal"></p>
-                        <p class="text-left" x-text="row.popup"></p>
-                    </div>
+                        <div class="grid grid-cols-4 gap-8 p-4 border-b border-border last:border-0">
+                            <p class="text-left font-bold" x-text="row.feature"></p>
+                            <p class="text-left" x-text="row.popover"></p>
+                            <p class="text-left" x-text="row.modal"></p>
+                            <p class="text-left" x-text="row.popup"></p>
+                        </div>
                     </template>
                 </div>
-                
             </section>
-
         </main>
 
         <footer class="footer fixed bg-mainB bottom-0 p-8 w-full left-0 right-0" x-data="{ year: new Date().getFullYear() }" id="footer">
@@ -167,9 +238,15 @@
 
         <!-- Custom js and swiper cdn-->
         <script type="text/javascript">
+            // document.addEventListener("alpine:init", () => {
+            //     Alpine.directive("popover", (el, { expression }, { evaluateLater }) => {
+            //         if (!("popover" in document.createElement("div"))) {
+            //             el.setAttribute("x-show", expression || "open");
+            //             el.style.display = "none";
+            //         }
+            //     });
+            // });
         </script>
         <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        
     </body>
-
 </html>

@@ -11,9 +11,15 @@
 } */
 
 @layer components {
-    /* section {
-        @apply py-10 md:py-20 relative;
-    } */
+    .items {
+        @apply py-6 relative;
+    }
+    .main-btn {
+        @apply px-4 py-2 bg-mainB text-black border-2 border-black;
+    }
+    li a {
+        @apply block hover:font-bold hover:underline text-left transition-all;
+    }
 }
 
 @layer base {
