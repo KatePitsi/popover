@@ -31,9 +31,8 @@
     </head>
 
     <body class="antialiased bg-mainB px-6" id="body">
-        
         <header class="header p-8 w-full max-w-7xl mx-auto" id="header">
-            <p class="font-bold text-xl">Exaples popover & dialog</p>
+            <h1 class="font-bold text-xl">Exaples popover & dialog</h1>
         </header>
 
         <main class="pb-20 px-8 relative w-full max-w-7xl mx-auto">
@@ -42,12 +41,13 @@
                 <!-- 1. Simple Dropdown -->
                 <section class="items">
                     <h2 class="text-lg font-bold mb-4">1. Απλό Dropdown Menu</h2>
-                    <button popovertarget="menu-popover" class="main-btn">
+                    <button popovertarget="menu-popover" class="main-btn"  aria-haspopup="menu" aria-controls="menu-popover" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" /></svg>
                         Menu
                     </button>
-                    <nav id="menu-popover" popover class="bg-white shadow absolute top-0 left-0 right-0 bottom-[50%] p-4 w-full max-w-md">
-                        <ul class="space-y-2">
+                    <nav id="menu-popover" popover role="menu" class="!absolute top-1/3 left-[35%] right-0 w-full max-w-md">
+                        <div class="hidden overlay fixed -z-10 w-screem h-screen bg-black opacity-50 top-0 left-0 right-0 bottom-0"></div>
+                        <ul class="space-y-2 relative z-50 bg-white p-8">
                             <li><a href="#" class="">Home</a></li>
                             <li><a href="#" class="">About</a></li>
                             <li><a href="#" class="">Services</a></li>
@@ -59,12 +59,12 @@
                 <section x-data="{ open: false }" class="relative items">
                     <h2 class="text-lg font-bold mb-4">2. Mega Menu</h2>
 
-                    <button @click="open = !open; $refs.mega.togglePopover?.()" class="main-btn">
+                    <button @click="open = !open; $refs.mega.togglePopover?.()" aria-haspopup="mega-menu" aria-controls="mega-menu-popover" aria-expanded="false" class="main-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="size-6 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
                         Mega Menu
                     </button>
 
-                    <div id="mega-popover" x-ref="mega" popover="open" x-show="open" @click.outside="open=false" class="absolute mt-2 left-0 bg-white shadow-2xl rounded-lg p-6 w-[600px] grid grid-cols-3 gap-8 z-50">
+                    <div id="mega-popover" x-ref="mega" popover="open" role="mega-menu" x-show="open" @click.outside="open=false" class="!absolute mt-2 top-1/3 left-[35%] right-0 bg-white shadow-2xl rounded-lg p-6 w-[600px] grid grid-cols-3 gap-8 z-50">
                         <div>
                             <h3 class="font-bold mb-2">Products</h3>
                             <ul class="space-y-1">
@@ -97,12 +97,12 @@
                 <!-- 3. Tooltip -->
                 <section class="items">
                     <h2 class="text-lg font-bold mb-4">3. Tooltip</h2>
-                    <button popovertarget="tooltip-popover" class="main-btn">
+                    <button popovertarget="tooltip-popover" aria-describedby="tooltip" class="main-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
                         </svg>
                     </button>
-                    <div id="tooltip-popover" popover class="bg-black text-white text-sm px-3 py-2 rounded absolute top-1/2 left-0 right-0 mt-2">
+                    <div id="tooltip-popover" role="tooltip" popover class="bg-black text-white text-base px-3 py-2 rounded !absolute top-1/3 left-[40%] right-0 mt-2">
                         Αυτό είναι tooltip χωρίς JS!
                     </div>
                 </section>
@@ -111,12 +111,12 @@
                 <section class="items">
                     <h2 class="text-lg font-bold mb-4">4. Cart Preview (Popover)</h2>
 
-                    <button popovertarget="cart-popover" class="main-btn">
+                    <button popovertarget="cart-popover" role="dialog" aria-labelledby="cart-title" class="main-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="size-6 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" /></svg>
                         Cart (2)
                     </button>
 
-                    <div id="cart-popover" popover class="bg-white shadow rounded p-4 w-72">
+                    <div id="cart-popover" popover class="bg-white shadow rounded p-4 w-full max-w-72 !absolute top-1/3 left-[38%] right-0 mt-2">
                         <p class="font-bold mb-2">Your cart</p>
                         <ul class="space-y-2">
                             <li class="flex justify-between"><span>Laptop</span><span>$999</span></li>
@@ -134,7 +134,7 @@
                     <button onclick="document.getElementById('myDialog').showModal()" class="main-btn">
                         Open Dialog
                     </button>
-                    <dialog id="myDialog" class="p-6 rounded shadow-lg">
+                    <dialog id="myDialog" class="p-6 rounded shadow-lg !obsolute top-1/3 left-[35%] right-0" aria-labelledby="dialog-title" aria-describedby="dialog-desc">
                         <h2 class="text-xl font-bold mb-2">Native Dialog</h2>
                         <p class="mb-4">Αυτό είναι modal χωρίς custom JS libraries 🎉</p>
                         <form method="dialog" class="flex justify-end">
@@ -162,6 +162,38 @@
                         <p>4. Μικρότερο “οπτικό φορτίο”</p>
                     </div>
                 </div>
+
+                <hr class="my-8" />
+
+                <div class="why-used-popover grid grid-cols-1 md:grid-cols-2 gap-12 content-center relative my-20">
+                    <div class="left">
+                        <p class="font-bold text-xl pb-2">Γιατί dialog?</p>
+                        <p class="">Ο λόγος που μπορείς να χρησιμοποιήσεις ένα dialog είναι κυρίως όταν χρειάζεσαι την πλήρη προσοχή του χρήστη και θέλεις να του δώσεις επιλογές ή να συλλέξεις δεδομένα.</p>
+                    </div>
+                    <div class="right">
+                        <p>1. Εστίαση στην ενέργεια – ο χρήστης σταματά ό,τι κάνει και επικεντρώνεται στο dialog.</p>
+                        <p>2. Δυνατότητα εισαγωγής δεδομένων – φόρμες, επιβεβαιώσεις ή επιλογές γίνονται με πιο ξεκάθαρο τρόπο.</p>
+                        <p>3. Σαφής ροή εργασίας – το dialog καθοδηγεί τον χρήστη σε ένα συγκεκριμένο επόμενο βήμα.</p>
+                        <p>4. Υποχρεωτική αλληλεπίδραση – ο χρήστης πρέπει να το κλείσει ή να επιλέξει κάτι για να συνεχίσει.</p>
+                    </div>
+                </div>
+
+                <hr class="my-8" />
+
+                <div class="why-used-popover grid grid-cols-1 md:grid-cols-2 gap-12 content-center relative my-20">
+                    <div class="left">
+                        <p class="font-bold text-xl pb-2">Γιατί popup?</p>
+                        <p class="">Ο λόγος που μπορείς να χρησιμοποιήσεις ένα popup είναι κυρίως για άμεση ειδοποίηση ή γρήγορη δράση που δεν απαιτεί μεγάλη αλληλεπίδραση.</p>
+                    </div>
+                    <div class="right">
+                        <p>1. Ειδοποιήσεις και προειδοποιήσεις – ενημερώνεις άμεσα τον χρήστη για κάτι σημαντικό.</p>
+                        <p>2. Εμφάνιση περιεχομένου πάνω από τη σελίδα – χωρίς να χρειάζεται να αλλάξει context ή να κάνει scroll.</p>
+                        <p>3. Γρήγορες ενέργειες – κουμπιά, links ή επιλογές που εκτελούνται άμεσα.</p>
+                        <p>4. Ορατότητα – τραβάει το μάτι του χρήστη αμέσως, κάτι χρήσιμο σε επείγουσες περιπτώσεις.</p>
+                    </div>
+                </div>
+
+                <hr class="my-8" />
 
                 <div class=""
                     x-data="
