@@ -1,4 +1,4 @@
-w-full max-w-7xl mx-auto<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
     <head>
         <meta charset="UTF-8" />
@@ -36,110 +36,114 @@ w-full max-w-7xl mx-auto<!DOCTYPE html>
         </header>
 
         <main class="pb-20 px-8 relative w-full max-w-7xl mx-auto">
-            <!-- 1. Simple Dropdown -->
-            <section class="items">
-                <h2 class="text-lg font-bold mb-4">1. Απλό Dropdown Menu</h2>
-                <button popovertarget="menu-popover" class="main-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" /></svg>
-                     Menu
-                </button>
-                <nav id="menu-popover" popover class="bg-white shadow absolute top-0 left-0 right-0 bottom-[50%] p-4 w-full max-w-md">
-                    <ul class="space-y-2">
-                        <li><a href="#" class="">Home</a></li>
-                        <li><a href="#" class="">About</a></li>
-                        <li><a href="#" class="">Services</a></li>
-                    </ul>
-                </nav>
-            </section>
 
-            <!-- 2. Mega Menu με fallback -->
-            <section x-data="{ open: false }" class="relative items">
-                <h2 class="text-lg font-bold mb-4">2. Mega Menu</h2>
-
-                <button @click="open = !open; $refs.mega.togglePopover?.()" class="main-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="size-6 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
-                    Mega Menu
-                </button>
-
-                <div id="mega-popover" x-ref="mega" popover="open" x-show="open" @click.outside="open=false" class="absolute mt-2 left-0 bg-white shadow-2xl rounded-lg p-6 w-[600px] grid grid-cols-3 gap-8 z-50">
-                    <div>
-                        <h3 class="font-bold mb-2">Products</h3>
-                        <ul class="space-y-1">
-                            <li><a href="#">Laptops</a></li>
-                            <li><a href="#">Phones</a></li>
-                            <li><a href="#">Accessories</a></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 class="font-bold mb-2">Resources</h3>
-                        <ul class="space-y-1">
-                            <li><a href="#">Docs</a></li>
-                            <li><a href="#">API</a></li>
-                            <li><a href="#">Tutorials</a></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 class="font-bold mb-2">Company</h3>
-                        <ul class="space-y-1">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Blog</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 3. Tooltip -->
-            <section class="items">
-                <h2 class="text-lg font-bold mb-4">3. Tooltip</h2>
-                <button popovertarget="tooltip-popover" class="main-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
-                    </svg>
-                </button>
-                <div id="tooltip-popover" popover class="bg-black text-white text-sm px-3 py-2 rounded absolute top-1/2 left-0 right-0 mt-2">
-                    Αυτό είναι tooltip χωρίς JS!
-                </div>
-            </section>
-
-            <!-- 4. Cart Preview -->
-            <section class="items">
-                <h2 class="text-lg font-bold mb-4">4. Cart Preview (Popover)</h2>
-
-                <button popovertarget="cart-popover" class="main-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="size-6 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" /></svg>
-                    Cart (2)
-                </button>
-
-                <div id="cart-popover" popover class="bg-white shadow rounded p-4 w-72">
-                    <p class="font-bold mb-2">Your cart</p>
-                    <ul class="space-y-2">
-                        <li class="flex justify-between"><span>Laptop</span><span>$999</span></li>
-                        <li class="flex justify-between"><span>Mouse</span><span>$49</span></li>
-                    </ul>
-                    <button class="mt-4 w-full bg-yellow-600 text-white py-2 rounded">
-                        Checkout
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-12 content-center relative my-20">
+                <!-- 1. Simple Dropdown -->
+                <section class="items">
+                    <h2 class="text-lg font-bold mb-4">1. Απλό Dropdown Menu</h2>
+                    <button popovertarget="menu-popover" class="main-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" /></svg>
+                        Menu
                     </button>
-                </div>
-            </section>
+                    <nav id="menu-popover" popover class="bg-white shadow absolute top-0 left-0 right-0 bottom-[50%] p-4 w-full max-w-md">
+                        <ul class="space-y-2">
+                            <li><a href="#" class="">Home</a></li>
+                            <li><a href="#" class="">About</a></li>
+                            <li><a href="#" class="">Services</a></li>
+                        </ul>
+                    </nav>
+                </section>
 
-            <!-- 4. Dialog -->
-            <section class="items">
-                <h2 class="text-lg font-bold mb-4">5. Modal Dialog (Native)</h2>
-                <button onclick="document.getElementById('myDialog').showModal()" class="main-btn">
-                    Open Dialog
-                </button>
-                <dialog id="myDialog" class="p-6 rounded shadow-lg">
-                    <h2 class="text-xl font-bold mb-2">Native Dialog</h2>
-                    <p class="mb-4">Αυτό είναι modal χωρίς custom JS libraries 🎉</p>
-                    <form method="dialog" class="flex justify-end">
-                        <button class="px-4 py-2 bg-gray-300 rounded mr-2">Cancel</button>
-                        <button class="px-4 py-2 bg-purple-600 text-white rounded">OK</button>
-                    </form>
-                </dialog>
-            </section>
+                <!-- 2. Mega Menu με fallback -->
+                <section x-data="{ open: false }" class="relative items">
+                    <h2 class="text-lg font-bold mb-4">2. Mega Menu</h2>
+
+                    <button @click="open = !open; $refs.mega.togglePopover?.()" class="main-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="size-6 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+                        Mega Menu
+                    </button>
+
+                    <div id="mega-popover" x-ref="mega" popover="open" x-show="open" @click.outside="open=false" class="absolute mt-2 left-0 bg-white shadow-2xl rounded-lg p-6 w-[600px] grid grid-cols-3 gap-8 z-50">
+                        <div>
+                            <h3 class="font-bold mb-2">Products</h3>
+                            <ul class="space-y-1">
+                                <li><a href="#">Laptops</a></li>
+                                <li><a href="#">Phones</a></li>
+                                <li><a href="#">Accessories</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold mb-2">Resources</h3>
+                            <ul class="space-y-1">
+                                <li><a href="#">Docs</a></li>
+                                <li><a href="#">API</a></li>
+                                <li><a href="#">Tutorials</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold mb-2">Company</h3>
+                            <ul class="space-y-1">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Careers</a></li>
+                                <li><a href="#">Blog</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. Tooltip -->
+                <section class="items">
+                    <h2 class="text-lg font-bold mb-4">3. Tooltip</h2>
+                    <button popovertarget="tooltip-popover" class="main-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                        </svg>
+                    </button>
+                    <div id="tooltip-popover" popover class="bg-black text-white text-sm px-3 py-2 rounded absolute top-1/2 left-0 right-0 mt-2">
+                        Αυτό είναι tooltip χωρίς JS!
+                    </div>
+                </section>
+
+                <!-- 4. Cart Preview -->
+                <section class="items">
+                    <h2 class="text-lg font-bold mb-4">4. Cart Preview (Popover)</h2>
+
+                    <button popovertarget="cart-popover" class="main-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="size-6 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" /></svg>
+                        Cart (2)
+                    </button>
+
+                    <div id="cart-popover" popover class="bg-white shadow rounded p-4 w-72">
+                        <p class="font-bold mb-2">Your cart</p>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between"><span>Laptop</span><span>$999</span></li>
+                            <li class="flex justify-between"><span>Mouse</span><span>$49</span></li>
+                        </ul>
+                        <button class="mt-4 w-full bg-yellow-600 text-white py-2 rounded">
+                            Checkout
+                        </button>
+                    </div>
+                </section>
+
+                <!-- 5. Dialog -->
+                <section class="items">
+                    <h2 class="text-lg font-bold mb-4">5. Modal Dialog (Native)</h2>
+                    <button onclick="document.getElementById('myDialog').showModal()" class="main-btn">
+                        Open Dialog
+                    </button>
+                    <dialog id="myDialog" class="p-6 rounded shadow-lg">
+                        <h2 class="text-xl font-bold mb-2">Native Dialog</h2>
+                        <p class="mb-4">Αυτό είναι modal χωρίς custom JS libraries 🎉</p>
+                        <form method="dialog" class="flex justify-end">
+                            <button class="px-4 py-2 bg-gray-300 rounded mr-2">Cancel</button>
+                            <button class="px-4 py-2 bg-purple-600 text-white rounded">OK</button>
+                        </form>
+                    </dialog>
+                </section>
+
+            </div>
 
             <hr class="my-8" />
 
@@ -213,7 +217,7 @@ w-full max-w-7xl mx-auto<!DOCTYPE html>
                     }"
                     class="space-y-4"
                 >
-                    <div class="grid grid-cols-4 gap-8 p-4 border-b border-border">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 p-4 border-b border-border">
                         <p class="font-bold text-xl">Χαρακτηριστικό</p>
                         <p class="font-bold text-xl">Popover</p>
                         <p class="font-bold text-xl">Dialog</p>
@@ -221,7 +225,7 @@ w-full max-w-7xl mx-auto<!DOCTYPE html>
                     </div>
 
                     <template x-for="(row, i) in rows" :key="i">
-                        <div class="grid grid-cols-4 gap-8 p-4 border-b border-border last:border-0">
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 p-4 border-b border-border last:border-0">
                             <p class="text-left font-bold" x-text="row.feature"></p>
                             <p class="text-left" x-text="row.popover"></p>
                             <p class="text-left" x-text="row.modal"></p>
