@@ -68,7 +68,6 @@
                     </div>
                 </section>
                 
-                <!-- 1. Simple Dropdown με Alpine.js inline -->
                 <section class="items" x-data="{ open: false }" @keydown.escape.window="open=false" @click.outside="open = false">
 
                     <h2 class="text-lg font-bold mb-4">1. Απλό Dropdown Menu</h2>
@@ -89,46 +88,61 @@
                     </nav>
                 </section>
 
-                <!-- 2. Mega Menu με fallback -->
-                <section x-data="{ open: false }" class="relative items">
+                <section x-data="{ open: false }" class="relative">
                     <h2 class="text-lg font-bold mb-4">2. Mega Menu</h2>
 
-                    <button @click="open = !open; $refs.mega.togglePopover?.()" aria-haspopup="menu" aria-controls="mega-popover" aria-expanded="false" class="main-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="size-6 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+                    <button 
+                        @click="open = !open" 
+                        :aria-expanded="open.toString()"
+                        aria-controls="mega-menu"
+                        class="main-btn flex items-center gap-2"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
+                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" 
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
                         Mega Menu
                     </button>
 
-                    <div id="mega-popover" x-ref="mega" popover="open" role="mega-menu" x-show="open" @click.outside="open=false" class="fixed flex flex-col md:flex-row gap-8 justify-between top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white p-4 rounded shadow-lg z-50">
+                    <div 
+                        id="mega-menu"
+                        x-show="open"
+                        x-transition
+                        @click.outside="open=false"
+                        class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                            flex flex-col md:flex-row gap-8 justify-between
+                            w-full max-w-md bg-white p-6 rounded shadow-lg z-50"
+                    >
                         <div>
-                            <h3 class="font-bold mb-2">Products</h3>
-                            <ul class="space-y-1">
-                                <li><a href="#">Laptops</a></li>
-                                <li><a href="#">Phones</a></li>
-                                <li><a href="#">Accessories</a></li>
-                            </ul>
+                        <h3 class="font-bold mb-2">Products</h3>
+                        <ul class="space-y-1">
+                            <li><a href="#">Laptops</a></li>
+                            <li><a href="#">Phones</a></li>
+                            <li><a href="#">Accessories</a></li>
+                        </ul>
                         </div>
 
                         <div>
-                            <h3 class="font-bold mb-2">Resources</h3>
-                            <ul class="space-y-1">
-                                <li><a href="#">Docs</a></li>
-                                <li><a href="#">API</a></li>
-                                <li><a href="#">Tutorials</a></li>
-                            </ul>
+                        <h3 class="font-bold mb-2">Resources</h3>
+                        <ul class="space-y-1">
+                            <li><a href="#">Docs</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">Tutorials</a></li>
+                        </ul>
                         </div>
 
                         <div>
-                            <h3 class="font-bold mb-2">Company</h3>
-                            <ul class="space-y-1">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Careers</a></li>
-                                <li><a href="#">Blog</a></li>
-                            </ul>
+                        <h3 class="font-bold mb-2">Company</h3>
+                        <ul class="space-y-1">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
                         </div>
                     </div>
-                </section>
+                    </section>
 
-                <!-- 3. Tooltip -->
                 <section class="items">
                     <h2 class="text-lg font-bold mb-4">3. Tooltip</h2>
                     <button popovertarget="tooltip-popover" aria-describedby="tooltip-popover" aria-label="Show more info" class="main-btn">
@@ -141,7 +155,6 @@
                     </div>
                 </section>
 
-                <!-- 4. Cart Preview -->
                 <section class="items">
                     <h2 class="text-lg font-bold mb-4">4. Cart Preview (Popover)</h2>
 
@@ -163,7 +176,6 @@
                     </div>
                 </section>
 
-                <!-- 5. Dialog -->
                 <section class="items">
                     <h2 class="text-lg font-bold mb-4">5. Modal Dialog (Native)</h2>
                     <button onclick="document.getElementById('myDialog').showModal()" class="main-btn">
