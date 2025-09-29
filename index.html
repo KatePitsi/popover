@@ -88,15 +88,10 @@
                     </nav>
                 </section>
 
-                <section x-data="{ open: false }" class="relative">
+                <section x-data="{ open: false }" class="items relative">
                     <h2 class="text-lg font-bold mb-4">2. Mega Menu</h2>
 
-                    <button 
-                        @click="open = !open" 
-                        :aria-expanded="open.toString()"
-                        aria-controls="mega-menu"
-                        class="main-btn flex items-center gap-2"
-                    >
+                    <button  @click="open = !open" :aria-expanded="open.toString()" aria-controls="mega-menu" class="main-btn flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
                             stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" 
@@ -105,15 +100,7 @@
                         Mega Menu
                     </button>
 
-                    <div 
-                        id="mega-menu"
-                        x-show="open"
-                        x-transition
-                        @click.outside="open=false"
-                        class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
-                            flex flex-col md:flex-row gap-8 justify-between
-                            w-full max-w-md bg-white p-6 rounded shadow-lg z-50"
-                    >
+                    <div id="mega-menu"x-show="open"x-transition@click.outside="open=false"class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-8 justify-between w-full max-w-md bg-white p-6 rounded shadow-lg z-50">
                         <div>
                         <h3 class="font-bold mb-2">Products</h3>
                         <ul class="space-y-1">
@@ -141,18 +128,16 @@
                         </ul>
                         </div>
                     </div>
-                    </section>
+                </section>
 
-                <section class="items">
-                    <h2 class="text-lg font-bold mb-4">3. Tooltip</h2>
-                    <button popovertarget="tooltip-popover" aria-describedby="tooltip-popover" aria-label="Show more info" class="main-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
-                        </svg>
-                    </button>
-                    <div id="tooltip-popover" role="tooltip" popover class="bg-black text-white text-base px-3 py-2 rounded !absolute top-1/3 left-[40%] right-0 mt-2">
-                        Αυτό είναι tooltip χωρίς JS!
-                    </div>
+                <section class="items" x-data="{ open: false, placement: 'top' }"> 
+                    <h2 class="text-lg font-bold mb-4">3. Tooltip</h2> 
+                    <button @click="open = !open" aria-describedby="tooltip-popover" class="main-btn relative" > 
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"> <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /> </svg> 
+                    </button> 
+                     <div id="tooltip-popover" role="tooltip" x-show="open" class="absolute bg-black text-white text-sm px-3 py-1 rounded z-50 whitespace-nowrap" :class="{ 'bottom-full left-1/2 -translate-x-1/2 mb-2': placement === 'top', 'top-full left-1/2 -translate-x-1/2 mt-2': placement === 'bottom', 'right-full top-1/2 -translate-y-1/2 mr-2': placement === 'left', 'left-full top-1/2 -translate-y-1/2 ml-2': placement === 'right' }" > 
+                        Αυτό είναι tooltip με Alpine! 
+                    </div> 
                 </section>
 
                 <section class="items">
