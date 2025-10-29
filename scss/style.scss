@@ -134,9 +134,10 @@ body {
 
 /* Dropdown Menu Styles */
 .dropdown-menu {
-  position: absolute;
-  left: 100%;
-  top: 50%;
+  position: relative;
+  left: calc(100vw - 1340px);
+  top: calc(100vh - 25%);
+  transform: translateY(-50%);
   transform: translateY(-50%);
   margin-left: 0.5rem;
   width: 12rem;

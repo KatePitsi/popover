@@ -26,26 +26,28 @@
 
             <div class="examples-grid">
                 
-                <!-- Example 0: Simple Dropdown without native popover -->
+                <!-- Example 0: Simple Dropdown using native popover -->
                 <section class="items">
-                    <h2 class="section-title">0. Απλό Dropdown Menu Χωρις native popover behavior</h2>
-                    <div class="dropdown-wrapper">
-                        <button id="dropdown0-btn" class="main-btn btn-with-icon" aria-haspopup="menu" aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
-                            </svg>
-                            Menu
-                        </button>
+                <h2 class="section-title">0. Απλό Dropdown Menu με native popover behavior</h2>
 
-                        <div id="dropdown0-menu" class="dropdown-menu hidden">
-                            <ul class="menu-list">
-                                <li><a href="#" class="dropdown-link">Home</a></li>
-                                <li><a href="#" class="dropdown-link">About</a></li>
-                                <li><a href="#" class="dropdown-link">Services</a></li>
-                            </ul>
-                        </div>
+                <div class="dropdown-wrapper">
+                    <button popovertarget="dropdown0-menu" class="main-btn btn-with-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+                    </svg>
+                    Menu
+                    </button>
+
+                    <div id="dropdown0-menu" popover class="dropdown-menu">
+                    <ul class="menu-list">
+                        <li><a href="#" class="dropdown-link">Home</a></li>
+                        <li><a href="#" class="dropdown-link">About</a></li>
+                        <li><a href="#" class="dropdown-link">Services</a></li>
+                    </ul>
                     </div>
+                </div>
                 </section>
+
 
                 <!-- Example 1: Simple Dropdown Menu -->
                 <section class="items">
