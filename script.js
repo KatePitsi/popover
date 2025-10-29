@@ -50,140 +50,140 @@ const comparisonTableData = [
   },
 ]
 
-// Dropdown functionality
-function initDropdown(btnId, menuId) {
-  const btn = document.getElementById(btnId)
-  const menu = document.getElementById(menuId)
+// // Dropdown functionality
+// function initDropdown(btnId, menuId) {
+//   const btn = document.getElementById(btnId)
+//   const menu = document.getElementById(menuId)
 
-  if (!btn || !menu) return
+//   if (!btn || !menu) return
 
-  btn.addEventListener("click", (e) => {
-    e.stopPropagation()
-    const isOpen = !menu.classList.contains("hidden")
+//   btn.addEventListener("click", (e) => {
+//     e.stopPropagation()
+//     const isOpen = !menu.classList.contains("hidden")
 
-    // Close all other dropdowns
-    document.querySelectorAll(".dropdown-menu, .dropdown-menu-absolute").forEach((m) => {
-      if (m !== menu) m.classList.add("hidden")
-    })
+//     // Close all other dropdowns
+//     document.querySelectorAll(".dropdown-menu, .dropdown-menu-absolute").forEach((m) => {
+//       if (m !== menu) m.classList.add("hidden")
+//     })
 
-    // Toggle current dropdown
-    menu.classList.toggle("hidden")
-    btn.setAttribute("aria-expanded", !isOpen)
-  })
+//     // Toggle current dropdown
+//     menu.classList.toggle("hidden")
+//     btn.setAttribute("aria-expanded", !isOpen)
+//   })
 
-  // Close on click outside
-  document.addEventListener("click", (e) => {
-    if (!btn.contains(e.target) && !menu.contains(e.target)) {
-      menu.classList.add("hidden")
-      btn.setAttribute("aria-expanded", "false")
-    }
-  })
+//   // Close on click outside
+//   document.addEventListener("click", (e) => {
+//     if (!btn.contains(e.target) && !menu.contains(e.target)) {
+//       menu.classList.add("hidden")
+//       btn.setAttribute("aria-expanded", "false")
+//     }
+//   })
 
-  // Close on Escape key
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !menu.classList.contains("hidden")) {
-      menu.classList.add("hidden")
-      btn.setAttribute("aria-expanded", "false")
-    }
-  })
-}
+//   // Close on Escape key
+//   document.addEventListener("keydown", (e) => {
+//     if (e.key === "Escape" && !menu.classList.contains("hidden")) {
+//       menu.classList.add("hidden")
+//       btn.setAttribute("aria-expanded", "false")
+//     }
+//   })
+// }
 
-// Mega Menu functionality
-function initMegaMenu() {
-  const btn = document.getElementById("mega-menu-btn")
-  const menu = document.getElementById("mega-menu")
+// // Mega Menu functionality
+// function initMegaMenu() {
+//   const btn = document.getElementById("mega-menu-btn")
+//   const menu = document.getElementById("mega-menu")
 
-  if (!btn || !menu) return
+//   if (!btn || !menu) return
 
-  btn.addEventListener("click", (e) => {
-    e.stopPropagation()
-    const isOpen = !menu.classList.contains("hidden")
-    menu.classList.toggle("hidden")
-    btn.setAttribute("aria-expanded", !isOpen)
-  })
+//   btn.addEventListener("click", (e) => {
+//     e.stopPropagation()
+//     const isOpen = !menu.classList.contains("hidden")
+//     menu.classList.toggle("hidden")
+//     btn.setAttribute("aria-expanded", !isOpen)
+//   })
 
-  // Close on click outside
-  document.addEventListener("click", (e) => {
-    if (!btn.contains(e.target) && !menu.contains(e.target)) {
-      menu.classList.add("hidden")
-      btn.setAttribute("aria-expanded", "false")
-    }
-  })
+//   // Close on click outside
+//   document.addEventListener("click", (e) => {
+//     if (!btn.contains(e.target) && !menu.contains(e.target)) {
+//       menu.classList.add("hidden")
+//       btn.setAttribute("aria-expanded", "false")
+//     }
+//   })
 
-  // Close on Escape key
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !menu.classList.contains("hidden")) {
-      menu.classList.add("hidden")
-      btn.setAttribute("aria-expanded", "false")
-    }
-  })
-}
+//   // Close on Escape key
+//   document.addEventListener("keydown", (e) => {
+//     if (e.key === "Escape" && !menu.classList.contains("hidden")) {
+//       menu.classList.add("hidden")
+//       btn.setAttribute("aria-expanded", "false")
+//     }
+//   })
+// }
 
-// Tooltip functionality
-function initTooltip() {
-  const btn = document.getElementById("tooltip-btn")
-  const tooltip = document.getElementById("tooltip-popover")
+// // Tooltip functionality
+// function initTooltip() {
+//   const btn = document.getElementById("tooltip-btn")
+//   const tooltip = document.getElementById("tooltip-popover")
 
-  if (!btn || !tooltip) return
+//   if (!btn || !tooltip) return
 
-  btn.addEventListener("click", (e) => {
-    e.stopPropagation()
-    tooltip.classList.toggle("hidden")
-  })
+//   btn.addEventListener("click", (e) => {
+//     e.stopPropagation()
+//     tooltip.classList.toggle("hidden")
+//   })
 
-  // Close on click outside
-  document.addEventListener("click", (e) => {
-    if (!btn.contains(e.target) && !tooltip.contains(e.target)) {
-      tooltip.classList.add("hidden")
-    }
-  })
-}
+//   // Close on click outside
+//   document.addEventListener("click", (e) => {
+//     if (!btn.contains(e.target) && !tooltip.contains(e.target)) {
+//       tooltip.classList.add("hidden")
+//     }
+//   })
+// }
 
-// Render comparison table
-function renderComparisonTable() {
-  const rowsContainer = document.getElementById("comparison-rows")
-  if (!rowsContainer) return
+// // Render comparison table
+// function renderComparisonTable() {
+//   const rowsContainer = document.getElementById("comparison-rows")
+//   if (!rowsContainer) return
 
-  comparisonTableData.forEach((row) => {
-    const rowDiv = document.createElement("div")
-    rowDiv.className = "comparison-table-row"
+//   comparisonTableData.forEach((row) => {
+//     const rowDiv = document.createElement("div")
+//     rowDiv.className = "comparison-table-row"
 
-    rowDiv.innerHTML = `
-      <p class="table-cell-bold">${row.feature}</p>
-      <p class="table-cell">${row.popover}</p>
-      <p class="table-cell">${row.modal}</p>
-      <p class="table-cell">${row.popup}</p>
-    `
+//     rowDiv.innerHTML = `
+//       <p class="table-cell-bold">${row.feature}</p>
+//       <p class="table-cell">${row.popover}</p>
+//       <p class="table-cell">${row.modal}</p>
+//       <p class="table-cell">${row.popup}</p>
+//     `
 
-    rowsContainer.appendChild(rowDiv)
-  })
-}
+//     rowsContainer.appendChild(rowDiv)
+//   })
+// }
 
-// Set current year in footer
-function setCurrentYear() {
-  const yearSpan = document.getElementById("current-year")
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear()
-  }
-}
+// // Set current year in footer
+// function setCurrentYear() {
+//   const yearSpan = document.getElementById("current-year")
+//   if (yearSpan) {
+//     yearSpan.textContent = new Date().getFullYear()
+//   }
+// }
 
-// Initialize when DOM is ready
-document.addEventListener("DOMContentLoaded", () => {
-  // Initialize dropdowns
-  initDropdown("dropdown0-btn", "dropdown0-menu")
-  initDropdown("dropdown1-btn", "dropdown1-menu")
+// // Initialize when DOM is ready
+// document.addEventListener("DOMContentLoaded", () => {
+//   // Initialize dropdowns
+//   initDropdown("dropdown0-btn", "dropdown0-menu")
+//   initDropdown("dropdown1-btn", "dropdown1-menu")
 
-  // Initialize mega menu
-  initMegaMenu()
+//   // Initialize mega menu
+//   initMegaMenu()
 
-  // Initialize tooltip
-  initTooltip()
+//   // Initialize tooltip
+//   initTooltip()
 
-  // Render comparison table
-  renderComparisonTable()
+//   // Render comparison table
+//   renderComparisonTable()
 
-  // Set current year
-  setCurrentYear()
+//   // Set current year
+//   setCurrentYear()
 
-  console.log("Popover & Dialog Examples loaded successfully")
-})
+//   console.log("Popover & Dialog Examples loaded successfully")
+// })

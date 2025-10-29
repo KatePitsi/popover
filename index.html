@@ -53,14 +53,14 @@
                 <section class="items">
                     <h2 class="section-title">1. Απλό Dropdown Menu</h2>
 
-                    <button id="dropdown1-btn" class="main-btn btn-with-icon" aria-haspopup="menu" aria-expanded="false">
+                    <button popovertarget="dropdown1-menu" id="dropdown1-btn" class="main-btn btn-with-icon" aria-haspopup="menu" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
                         </svg>
                         Menu
                     </button>
 
-                    <nav id="dropdown1-menu" role="menu" class="dropdown-menu-absolute hidden">
+                    <nav id="dropdown1-menu" popover="auto" role="menu" class="dropdown-menu-absolute">
                         <ul class="menu-list">
                             <li><a href="#" class="dropdown-link">Home</a></li>
                             <li><a href="#" class="dropdown-link">About</a></li>
@@ -69,103 +69,72 @@
                     </nav>
                 </section>
 
-                <!-- Example 2: Mega Menu -->
+                <!-- Example 2: Tooltip -->
                 <section class="items">
-                    <h2 class="section-title">2. Mega Menu</h2>
-
-                    <button id="mega-menu-btn" aria-expanded="false" aria-controls="mega-menu" class="main-btn btn-with-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                        </svg>
-                        Mega Menu
-                    </button>
-
-                    <div id="mega-menu" class="mega-menu-container hidden">
-                        <div>
-                            <h3 class="mega-menu-heading">Products</h3>
-                            <ul class="mega-menu-list">
-                                <li><a href="#" class="mega-menu-link">Laptops</a></li>
-                                <li><a href="#" class="mega-menu-link">Phones</a></li>
-                                <li><a href="#" class="mega-menu-link">Accessories</a></li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h3 class="mega-menu-heading">Resources</h3>
-                            <ul class="mega-menu-list">
-                                <li><a href="#" class="mega-menu-link">Docs</a></li>
-                                <li><a href="#" class="mega-menu-link">API</a></li>
-                                <li><a href="#" class="mega-menu-link">Tutorials</a></li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h3 class="mega-menu-heading">Company</h3>
-                            <ul class="mega-menu-list">
-                                <li><a href="#" class="mega-menu-link">About Us</a></li>
-                                <li><a href="#" class="mega-menu-link">Careers</a></li>
-                                <li><a href="#" class="mega-menu-link">Blog</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Example 3: Tooltip -->
-                <section class="items">
-                    <h2 class="section-title">3. Tooltip</h2>
-                    <button id="tooltip-btn" aria-describedby="tooltip-popover" class="main-btn">
+                    <h2 class="section-title">2. Tooltip</h2>
+                    <button popovertarget="tooltip-popover" class="main-btn" aria-describedby="tooltip-popover">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
                         </svg>
                     </button>
-                    <div id="tooltip-popover" role="tooltip" class="tooltip-container tooltip-top hidden">
+                    <div id="tooltip-popover" popover="manual" role="tooltip" class="tooltip-container tooltip-top">
                         Αυτό είναι tooltip με Js!
                     </div>
                 </section>
 
-                <!-- Example 4: Cart Preview -->
+                <!-- Example 3: Cart Preview (using native popover) -->
                 <section class="items">
-                    <h2 class="section-title">4. Cart Preview (Popover)</h2>
+                <h2 class="section-title">3. Cart Preview (Popover)</h2>
 
-                    <button popovertarget="cart-popover" aria-controls="cart-popover" aria-expanded="false" aria-label="Open cart with 2 items" class="main-btn btn-with-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="icon">
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-                            />
-                        </svg>
-                        <span class="sr-only">Open cart</span>
-                        Cart (2)
-                    </button>
+                <button popovertarget="cart-popover" class="main-btn btn-with-icon" aria-label="Open cart with 2 items">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="icon">
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                    />
+                    </svg>
+                    <span class="sr-only">Open cart</span>
+                    Cart (2)
+                </button>
 
-                    <div id="cart-popover" popover role="dialog" aria-labelledby="cart-title" class="cart-popover-container">
-                        <p class="cart-title">Your cart</p>
-                        <ul class="cart-list">
-                            <li class="cart-item"><span>Laptop</span><span>$999</span></li>
-                            <li class="cart-item"><span>Mouse</span><span>$49</span></li>
-                        </ul>
-                        <button class="checkout-btn">
-                            Checkout
-                        </button>
-                    </div>
+                <div id="cart-popover" popover="auto" role="dialog" aria-labelledby="cart-title" class="cart-popover-container">
+                    <p id="cart-title" class="cart-title">Your cart</p>
+                    <ul class="cart-list">
+                    <li class="cart-item"><span>Laptop</span><span>$999</span></li>
+                    <li class="cart-item"><span>Mouse</span><span>$49</span></li>
+                    </ul>
+                    <button class="checkout-btn">Checkout</button>
+                </div>
                 </section>
 
-                <!-- Example 5: Modal Dialog -->
+               <!-- Example 4: Modal Dialog (Native) -->
                 <section class="items">
-                    <h2 class="section-title">5. Modal Dialog (Native)</h2>
-                    <button onclick="document.getElementById('myDialog').showModal()" class="main-btn">
-                        Open Dialog
-                    </button>
-                    <dialog id="myDialog" class="dialog-container" aria-labelledby="dialog-title" aria-describedby="dialog-desc">
-                        <h2 class="dialog-title">Native Dialog</h2>
-                        <p class="dialog-desc">Αυτό είναι modal χωρίς custom JS libraries 🎉</p>
-                        <form method="dialog" class="dialog-actions">
-                            <button class="dialog-btn-cancel">Cancel</button>
-                            <button class="dialog-btn-ok">OK</button>
-                        </form>
-                    </dialog>
+                <h2 class="section-title">4. Modal Dialog (Native)</h2>
+
+                <button id="open-dialog" class="main-btn">Open Dialog</button>
+
+                <dialog id="myDialog" class="dialog-container" aria-labelledby="dialog-title" aria-describedby="dialog-desc">
+                    <h2 id="dialog-title" class="dialog-title">Native Dialog</h2>
+                    <p id="dialog-desc" class="dialog-desc">Αυτό είναι modal χωρίς custom JS libraries 🎉</p>
+                    <form method="dialog" class="dialog-actions">
+                    <button value="cancel" class="dialog-btn-cancel">Cancel</button>
+                    <button value="ok" class="dialog-btn-ok">OK</button>
+                    </form>
+                </dialog>
+
+                <script>
+                    const openBtn = document.getElementById('open-dialog');
+                    const dialog = document.getElementById('myDialog');
+
+                    openBtn.addEventListener('click', () => dialog.showModal());
+                    dialog.addEventListener('close', () => {
+                    // optional: handle returnValue ("cancel" | "ok")
+                    console.log('Dialog closed with:', dialog.returnValue);
+                    });
+                </script>
                 </section>
+
             </div>
 
             <hr class="divider" />
