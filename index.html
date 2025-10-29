@@ -1,209 +1,201 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Test Katerina</title>
-        <link rel="stylesheet" href="style.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="css/style.min.css" />
 
-        <!-- SEO -->
-        <link rel="canonical" href="https://example.com/" />
-        <link rel="alternate" hreflang="en" href="https://example.com/" />
-        <link rel="alternate" hreflang="x-default" href="https://example.com/" />
-
-        <meta name="description" content="Ex nec senectus per vulputate pretium tellus phasellus amet mauris fames aptent erat dignissim mi" />
-        <meta name="keywords" content="test, test, test" />
-        <meta name="robots" content="noindex, nofollow, max-image-preview:large, noodp, noydir, max-snippet:-1, max-video-preview:-1" />
-        <link rel="icon" type="image/png" sizes="32x32" href="img/logo.png.webp" />
-        <link rel="icon" type="image/x-icon" href="img/favico.ico" />
-
-        <meta property="og:title" content="Senectus tellus habitant" />
-        <meta property="og:description" content="Cursus curabitur fusce quam nunc maecenas ipsum ornare etiam nam duis." />
-        <meta property="og:image" content="https://example.com/img/hero.jpg.webp" />
-        <meta property="og:url" content="https://example.com/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Senectus tellus habitant" />
-
-        <!-- Js -->
-        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <!-- Removed Alpine.js, added vanilla JS -->
+        <script defer src="script.js"></script>
     </head>
 
-    <body class="antialiased bg-mainB px-6" id="body">
-        <header class="header p-8 w-full max-w-7xl mx-auto" id="header">
-            <h1 class="font-bold text-xl">Exaples popover & dialog</h1>
+    <body id="body">
+        <header class="header" id="header">
+            <h1 class="header-title">Exaples popover</h1>
         </header>
 
-        <main class="pb-20 px-8 relative w-full max-w-7xl mx-auto">
+        <main class="main-content">
 
-            <div class="grid grid-cols-1 md:grid-cols-6 gap-12 content-center relative my-20" x-data>
+            <section class="general">
+                <h2 class="section-title">Gesneral popover</h2>
+                <button popovertarget="my-popover">Open Popover</button>
+                <div popover id="my-popover">Greetings, one and all!</div>
+            </section>
 
-                <section class="items" x-data="{ open: false }" @keydown.escape="open=false">
-                    <h2 class="text-lg font-bold mb-4">0. Απλό Dropdown Menu Χωρις native popover behavior</h2>
-                    <div class="relative inline-block">
-                        <button 
-                            @click="open = !open"
-                            class="main-btn focus:outline-none flex items-center gap-2" 
-                            aria-haspopup="menu" 
-                            aria-expanded="false"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" /></svg>
+            <div class="examples-grid">
+                
+                <!-- Example 0: Simple Dropdown without native popover -->
+                <section class="items">
+                    <h2 class="section-title">0. Απλό Dropdown Menu Χωρις native popover behavior</h2>
+                    <div class="dropdown-wrapper">
+                        <button id="dropdown0-btn" class="main-btn btn-with-icon" aria-haspopup="menu" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+                            </svg>
                             Menu
                         </button>
 
-                        <!-- Popover -->
-                        <div 
-                            x-show="open"
-                            x-transition
-                            @click.away="open = false"
-                            class="absolute left-full top-1/2 -translate-y-1/2 ml-2 w-48 bg-white shadow-lg rounded-md p-4 z-50"
-                        >
-                            <ul class="space-y-2">
-                                <li><a href="#" class="">Home</a></li>
-                                <li><a href="#" class="">About</a></li>
-                                <li><a href="#" class="">Services</a></li>
+                        <div id="dropdown0-menu" class="dropdown-menu hidden">
+                            <ul class="menu-list">
+                                <li><a href="#" class="dropdown-link">Home</a></li>
+                                <li><a href="#" class="dropdown-link">About</a></li>
+                                <li><a href="#" class="dropdown-link">Services</a></li>
                             </ul>
                         </div>
                     </div>
                 </section>
-                
-                <section class="items" x-data="{ open: false }" @keydown.escape.window="open=false" @click.outside="open = false">
 
-                    <h2 class="text-lg font-bold mb-4">1. Απλό Dropdown Menu</h2>
+                <!-- Example 1: Simple Dropdown Menu -->
+                <section class="items">
+                    <h2 class="section-title">1. Απλό Dropdown Menu</h2>
 
-                    <button @click="open = !open" class="main-btn focus:outline-none flex items-center gap-2" aria-haspopup="menu" :aria-expanded="open">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 inline">
+                    <button id="dropdown1-btn" class="main-btn btn-with-icon" aria-haspopup="menu" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
                         </svg>
                         Menu
                     </button>
 
-                    <nav x-show="open" x-transition role="menu" class="absolute left-0 mt-2 w-64 bg-white p-4 rounded shadow-lg z-50">
-                        <ul class="space-y-2">
-                            <li><a href="#" class="">Home</a></li>
-                            <li><a href="#" class="">About</a></li>
-                            <li><a href="#" class="">Services</a></li>
+                    <nav id="dropdown1-menu" role="menu" class="dropdown-menu-absolute hidden">
+                        <ul class="menu-list">
+                            <li><a href="#" class="dropdown-link">Home</a></li>
+                            <li><a href="#" class="dropdown-link">About</a></li>
+                            <li><a href="#" class="dropdown-link">Services</a></li>
                         </ul>
                     </nav>
                 </section>
 
-                <section x-data="{ open: false }" class="items relative">
-                    <h2 class="text-lg font-bold mb-4">2. Mega Menu</h2>
+                <!-- Example 2: Mega Menu -->
+                <section class="items">
+                    <h2 class="section-title">2. Mega Menu</h2>
 
-                    <button  @click="open = !open" :aria-expanded="open.toString()" aria-controls="mega-menu" class="main-btn flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
-                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" 
-                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    <button id="mega-menu-btn" aria-expanded="false" aria-controls="mega-menu" class="main-btn btn-with-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
                         Mega Menu
                     </button>
 
-                    <div id="mega-menu"x-show="open" x-transition@click.outside="open=false" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-8 justify-between w-full max-w-md bg-white p-6 rounded shadow-lg z-50">
+                    <div id="mega-menu" class="mega-menu-container hidden">
                         <div>
-                        <h3 class="font-bold mb-2">Products</h3>
-                        <ul class="space-y-1">
-                            <li><a href="#">Laptops</a></li>
-                            <li><a href="#">Phones</a></li>
-                            <li><a href="#">Accessories</a></li>
-                        </ul>
+                            <h3 class="mega-menu-heading">Products</h3>
+                            <ul class="mega-menu-list">
+                                <li><a href="#" class="mega-menu-link">Laptops</a></li>
+                                <li><a href="#" class="mega-menu-link">Phones</a></li>
+                                <li><a href="#" class="mega-menu-link">Accessories</a></li>
+                            </ul>
                         </div>
 
                         <div>
-                        <h3 class="font-bold mb-2">Resources</h3>
-                        <ul class="space-y-1">
-                            <li><a href="#">Docs</a></li>
-                            <li><a href="#">API</a></li>
-                            <li><a href="#">Tutorials</a></li>
-                        </ul>
+                            <h3 class="mega-menu-heading">Resources</h3>
+                            <ul class="mega-menu-list">
+                                <li><a href="#" class="mega-menu-link">Docs</a></li>
+                                <li><a href="#" class="mega-menu-link">API</a></li>
+                                <li><a href="#" class="mega-menu-link">Tutorials</a></li>
+                            </ul>
                         </div>
 
                         <div>
-                        <h3 class="font-bold mb-2">Company</h3>
-                        <ul class="space-y-1">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Blog</a></li>
-                        </ul>
+                            <h3 class="mega-menu-heading">Company</h3>
+                            <ul class="mega-menu-list">
+                                <li><a href="#" class="mega-menu-link">About Us</a></li>
+                                <li><a href="#" class="mega-menu-link">Careers</a></li>
+                                <li><a href="#" class="mega-menu-link">Blog</a></li>
+                            </ul>
                         </div>
                     </div>
                 </section>
 
-                <section class="items" x-data="{ open: false, placement: 'top' }"> 
-                    <h2 class="text-lg font-bold mb-4">3. Tooltip</h2> 
-                    <button @click="open = !open" aria-describedby="tooltip-popover" class="main-btn relative" > 
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"> <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /> </svg> 
-                    </button> 
-                     <div id="tooltip-popover" role="tooltip" x-show="open" class="absolute bg-black text-white text-sm px-3 py-1 rounded z-50 whitespace-nowrap" :class="{ 'bottom-full left-1/2 -translate-x-1/2 mb-2': placement === 'top', 'top-full left-1/2 -translate-x-1/2 mt-2': placement === 'bottom', 'right-full top-1/2 -translate-y-1/2 mr-2': placement === 'left', 'left-full top-1/2 -translate-y-1/2 ml-2': placement === 'right' }" > 
-                        Αυτό είναι tooltip με Alpine! 
-                    </div> 
+                <!-- Example 3: Tooltip -->
+                <section class="items">
+                    <h2 class="section-title">3. Tooltip</h2>
+                    <button id="tooltip-btn" aria-describedby="tooltip-popover" class="main-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                        </svg>
+                    </button>
+                    <div id="tooltip-popover" role="tooltip" class="tooltip-container tooltip-top hidden">
+                        Αυτό είναι tooltip με Js!
+                    </div>
                 </section>
 
+                <!-- Example 4: Cart Preview -->
                 <section class="items">
-                    <h2 class="text-lg font-bold mb-4">4. Cart Preview (Popover)</h2>
+                    <h2 class="section-title">4. Cart Preview (Popover)</h2>
 
-                    <button popovertarget="cart-popover" aria-controls="cart-popover" aria-expanded="false" aria-label="Open cart with 2 items" class="main-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="size-6 inline"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" /></svg>
+                    <button popovertarget="cart-popover" aria-controls="cart-popover" aria-expanded="false" aria-label="Open cart with 2 items" class="main-btn btn-with-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="icon">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                            />
+                        </svg>
                         <span class="sr-only">Open cart</span>
                         Cart (2)
                     </button>
 
-                    <div id="cart-popover" popover role="dialog" aria-labelledby="cart-title" class="bg-white shadow rounded p-4 w-full max-w-72 !absolute top-1/3 left-[38%] right-0 mt-2">
-                        <p class="font-bold mb-2">Your cart</p>
-                        <ul class="space-y-2">
-                            <li class="flex justify-between"><span>Laptop</span><span>$999</span></li>
-                            <li class="flex justify-between"><span>Mouse</span><span>$49</span></li>
+                    <div id="cart-popover" popover role="dialog" aria-labelledby="cart-title" class="cart-popover-container">
+                        <p class="cart-title">Your cart</p>
+                        <ul class="cart-list">
+                            <li class="cart-item"><span>Laptop</span><span>$999</span></li>
+                            <li class="cart-item"><span>Mouse</span><span>$49</span></li>
                         </ul>
-                        <button class="mt-4 w-full bg-yellow-600 text-white py-2 rounded">
+                        <button class="checkout-btn">
                             Checkout
                         </button>
                     </div>
                 </section>
 
+                <!-- Example 5: Modal Dialog -->
                 <section class="items">
-                    <h2 class="text-lg font-bold mb-4">5. Modal Dialog (Native)</h2>
+                    <h2 class="section-title">5. Modal Dialog (Native)</h2>
                     <button onclick="document.getElementById('myDialog').showModal()" class="main-btn">
                         Open Dialog
                     </button>
-                    <dialog id="myDialog" class="p-6 rounded shadow-lg !obsolute top-1/3 left-[35%] right-0" aria-labelledby="dialog-title" aria-describedby="dialog-desc">
-                        <h2 class="text-xl font-bold mb-2">Native Dialog</h2>
-                        <p class="mb-4">Αυτό είναι modal χωρίς custom JS libraries 🎉</p>
-                        <form method="dialog" class="flex justify-end">
-                            <button class="px-4 py-2 bg-gray-300 rounded mr-2">Cancel</button>
-                            <button class="px-4 py-2 bg-purple-600 text-white rounded">OK</button>
+                    <dialog id="myDialog" class="dialog-container" aria-labelledby="dialog-title" aria-describedby="dialog-desc">
+                        <h2 class="dialog-title">Native Dialog</h2>
+                        <p class="dialog-desc">Αυτό είναι modal χωρίς custom JS libraries 🎉</p>
+                        <form method="dialog" class="dialog-actions">
+                            <button class="dialog-btn-cancel">Cancel</button>
+                            <button class="dialog-btn-ok">OK</button>
                         </form>
                     </dialog>
                 </section>
-
             </div>
 
-            <hr class="my-8" />
+            <hr class="divider" />
 
-            <section class="details w-full max-w-7xl mx-auto my-20">
-
-                <div class="why-used-popover grid grid-cols-1 md:grid-cols-2 gap-12 content-center relative my-20">
-                    <div class="left">
-                        <p class="font-bold text-xl pb-2">Γιατί popover?</p>
-                        <p class="">Ο λόγος που μπορείς να χρησιμοποιήσεις ένα popover είναι κυρίως για βελτιωμένη εμπειρία χρήστη (UX) και καλύτερη διαχείριση πληροφοριών στη σελίδα.</p>
-                        <p class="italic pt-6 text-sm">Το popover είναι <span class="font-bold">πειραματικό</span> και διαφορετικά browsers το υλοποιούν διαφορετικά.<br> Η θέση και το layout του popover υπολογίζονται από τον browser και δεν μπορείς να τα override πλήρως με CSS. <br>Οπότε δεν υπάρχει "universal CSS" που να κάνει το native popover να εμφανίζεται ακριβώς ίδιο σε Chrome, Firefox και Safari. Οπότε για positioning περναμε JS.</p>
+            <!-- Information Sections -->
+            <section class="details">
+                <div class="info-section">
+                    <div class="info-left">
+                        <p class="info-title">Γιατί popover?</p>
+                        <p class="info-text">Ο λόγος που μπορείς να χρησιμοποιήσεις ένα popover είναι κυρίως για βελτιωμένη εμπειρία χρήστη (UX) και καλύτερη διαχείριση πληροφοριών στη σελίδα.</p>
+                        <p class="info-note">
+                            Το popover είναι <span class="font-bold">πειραματικό</span> και διαφορετικά browsers το υλοποιούν διαφορετικά.<br />
+                            Η θέση και το layout του popover υπολογίζονται από τον browser και δεν μπορείς να τα override πλήρως με CSS. <br />
+                            Οπότε δεν υπάρχει "universal CSS" που να κάνει το native popover να εμφανίζεται ακριβώς ίδιο σε Chrome, Firefox και Safari. Οπότε για positioning περναμε JS.
+                        </p>
                     </div>
-                    <div class="right">
+                    <div class="info-right">
                         <p>1. Εμφάνιση πληροφοριών χωρίς ανανέωση σελίδας</p>
                         <p>2. Εστίαση στο context</p>
                         <p>3. Δυνατότητα αλληλεπίδρασης</p>
-                        <p>4. Μικρότερο “οπτικό φορτίο”</p>
+                        <p>4. Μικρότερο "οπτικό φορτίο"</p>
                     </div>
                 </div>
 
-                <hr class="my-8" />
+                <hr class="divider" />
 
-                <div class="why-used-popover grid grid-cols-1 md:grid-cols-2 gap-12 content-center relative my-20">
-                    <div class="left">
-                        <p class="font-bold text-xl pb-2">Γιατί dialog?</p>
-                        <p class="">Ο λόγος που μπορείς να χρησιμοποιήσεις ένα dialog είναι κυρίως όταν χρειάζεσαι την πλήρη προσοχή του χρήστη και θέλεις να του δώσεις επιλογές ή να συλλέξεις δεδομένα.</p>
+                <div class="info-section hidden">
+                    <div class="info-left">
+                        <p class="info-title">Γιατί dialog?</p>
+                        <p class="info-text">Ο λόγος που μπορείς να χρησιμοποιήσεις ένα dialog είναι κυρίως όταν χρειάζεσαι την πλήρη προσοχή του χρήστη και θέλεις να του δώσεις επιλογές ή να συλλέξεις δεδομένα.</p>
                     </div>
-                    <div class="right">
+                    <div class="info-right">
                         <p>1. Εστίαση στην ενέργεια – ο χρήστης σταματά ό,τι κάνει και επικεντρώνεται στο dialog.</p>
                         <p>2. Δυνατότητα εισαγωγής δεδομένων – φόρμες, επιβεβαιώσεις ή επιλογές γίνονται με πιο ξεκάθαρο τρόπο.</p>
                         <p>3. Σαφής ροή εργασίας – το dialog καθοδηγεί τον χρήστη σε ένα συγκεκριμένο επόμενο βήμα.</p>
@@ -211,14 +203,14 @@
                     </div>
                 </div>
 
-                <hr class="my-8" />
+                <hr class="divider hidden" />
 
-                <div class="why-used-popover grid grid-cols-1 md:grid-cols-2 gap-12 content-center relative my-20">
-                    <div class="left">
-                        <p class="font-bold text-xl pb-2">Γιατί popup?</p>
-                        <p class="">Ο λόγος που μπορείς να χρησιμοποιήσεις ένα popup είναι κυρίως για άμεση ειδοποίηση ή γρήγορη δράση που δεν απαιτεί μεγάλη αλληλεπίδραση.</p>
+                <div class="info-section hidden">
+                    <div class="info-left">
+                        <p class="info-title">Γιατί popup?</p>
+                        <p class="info-text">Ο λόγος που μπορείς να χρησιμοποιήσεις ένα popup είναι κυρίως για άμεση ειδοποίηση ή γρήγορη δράση που δεν απαιτεί μεγάλη αλληλεπίδραση.</p>
                     </div>
-                    <div class="right">
+                    <div class="info-right">
                         <p>1. Ειδοποιήσεις και προειδοποιήσεις – ενημερώνεις άμεσα τον χρήστη για κάτι σημαντικό.</p>
                         <p>2. Εμφάνιση περιεχομένου πάνω από τη σελίδα – χωρίς να χρειάζεται να αλλάξει context ή να κάνει scroll.</p>
                         <p>3. Γρήγορες ενέργειες – κουμπιά, links ή επιλογές που εκτελούνται άμεσα.</p>
@@ -226,94 +218,19 @@
                     </div>
                 </div>
 
-                <hr class="my-8" />
+                <hr class="divider hidden" />
 
-                <div class=""
-                    x-data="
-                    { rows: [
-                            {
-                                feature: 'Τρόπος εμφάνισης',
-                                popover: 'Μέσα στη σελίδα, σαν overlay πάνω από το περιεχόμενο',
-                                modal: 'Μέσα στη σελίδα, σαν overlay, αλλά μπλοκάρει την υπόλοιπη αλληλεπίδραση',
-                                popup: 'Σε νέο παράθυρο/καρτέλα του browser'
-                            },
-                            {
-                                feature: 'HTML/DOM',
-                                popover: 'Στοιχείο DOM (π.χ. &lt;div popover&gt;)',
-                                modal: 'Στοιχείο DOM (π.χ. &lt;dialog&gt;)',
-                                popup: 'Ξεχωριστό παράθυρο, εκτός DOM'
-                            },
-                            {
-                                feature: 'Έλεγχος',
-                                popover: 'Με attributes ή JS (showPopover)',
-                                modal: 'Με JS (showModal, close)',
-                                popup: 'Με JS (window.open, window.close)'
-                            },
-                            {
-                                feature: 'Κλείσιμο',
-                                popover: 'Light dismiss (κλικ έξω, Esc) αν είναι auto',
-                                modal: 'Συνήθως με explicit action',
-                                popup: 'Από χρήστη ή με JS'
-                            },
-                            {
-                                feature: 'Εμπειρία χρήστη',
-                                popover: 'Ελαφρύ, μη-παρεμβατικό',
-                                modal: 'Κλειδώνει την υπόλοιπη σελίδα',
-                                popup: 'Ξεχωριστό, σαν άλλη εφαρμογή'
-                            },
-                            {
-                                feature: 'Χρήσεις',
-                                popover: 'Dropdowns, tooltips, info panels',
-                                modal: 'Confirm dialogs, φόρμες',
-                                popup: 'Login flows, third-party content'
-                            },
-                            {
-                                feature: 'Popup blockers',
-                                popover: 'Δεν μπλοκάρονται',
-                                modal: 'Δεν μπλοκάρονται',
-                                popup: 'Συχνά μπλοκάρονται'
-                            },
-                            {
-                                feature: 'Προσβασιμότητα',
-                                popover: 'Χρειάζεται χειρισμό (ARIA) αλλά έχει στήριξη',
-                                modal: 'Υποστηρίζεται (ειδικά &lt;dialog&gt;)',
-                                popup: 'Εξαρτάται από το περιεχόμενο'
-                            }
-                        ]
-                    }"
-                    class="space-y-4"
-                >
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 p-4 border-b border-border">
-                        <p class="font-bold text-xl">Χαρακτηριστικό</p>
-                        <p class="font-bold text-xl">Popover</p>
-                        <p class="font-bold text-xl">Dialog</p>
-                        <p class="font-bold text-xl">Popup</p>
+                <!-- Comparison Table -->
+                <div id="comparison-table" class="comparison-table hidden">
+                    <div class="comparison-table-header">
+                        <p class="table-header-cell">Χαρακτηριστικό</p>
+                        <p class="table-header-cell">Popover</p>
+                        <p class="table-header-cell">Dialog</p>
+                        <p class="table-header-cell">Popup</p>
                     </div>
-
-                    <template x-for="(row, i) in rows" :key="i">
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 p-4 border-b border-border last:border-0">
-                            <p class="text-left font-bold" x-text="row.feature"></p>
-                            <p class="text-left" x-text="row.popover"></p>
-                            <p class="text-left" x-text="row.modal"></p>
-                            <p class="text-left" x-text="row.popup"></p>
-                        </div>
-                    </template>
+                    <div id="comparison-rows"></div>
                 </div>
             </section>
-
         </main>
-
-        <footer class="footer fixed bg-mainB bottom-0 p-8 w-full left-0 right-0" x-data="{ year: new Date().getFullYear() }" id="footer">
-            <div class="flex flex-col md:flex-row gap-8 justify-between">
-                <p class="text-center md:text-flex">© <span x-text="year" class="text-black"></span> All rights reserved.</p>
-                <p class="text-center md:text-flex">KateP.</p>
-            </div>
-        </footer>
-
-        <!-- Custom js and swiper cdn-->
-        <script type="text/javascript">
-            
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     </body>
 </html>

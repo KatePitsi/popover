@@ -1,28 +1,15 @@
 {
-  "name": "popover",
+  "name": "katerepo",
   "version": "1.0.0",
-  "description": "test page",
-  "type": "module",
-  "main": "tailwind.config.js",
+  "description": "",
   "scripts": {
-    "tailwind": "npx tailwindcss -i ./src/input.css -o ./style.css --minify --watch",
+    "sass": "sass --watch scss/style.scss:css/style.min.css --style=compressed",
     "server": "lite-server",
-    "start": "concurrently \"npm run tailwind\" \"npm run server\""
+    "start": "concurrently \"npm run sass\" \"npm run server\""
   },
-  "author": "Catherine Pitsigavdaki",
-  "license": "ISC",
   "devDependencies": {
     "concurrently": "^8.2.2",
     "lite-server": "^2.6.1",
-    "@tailwindcss/forms": "^0.5.3",
-    "autoprefixer": "^10.4.7",
-    "postcss": "^8.4.14",
-    "tailwindcss": "^3.1.8"
-  },
-  "dependencies": {
-    "alpinejs": "^3.10.5",
-    "esbuild": "^0.15.12",
-    "slick-carousel": "^1.8.1",
-    "swiper": "^8.4.4"
+    "sass": "^1.69.0"
   }
 }
