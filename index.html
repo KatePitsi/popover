@@ -1,207 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Test Katerina</title>
-        <link rel="stylesheet" href="css/style.min.css" />
+<html lang="el">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>HTML Popover - Παρουσίαση</title>
+		<link rel="stylesheet" href="css/style.min.css" />
+		<script defer src="script.js"></script>
+	</head>
 
-        <!-- Removed Alpine.js, added vanilla JS -->
-        <script defer src="script.js"></script>
-    </head>
+	<body>
+		<main>
+			<div class="container">
+				<!-- Εισαγωγή -->
+				<section class="section">
+					<h2>Τι είναι το Popover</h2>
+					<p>
+Το popover είναι ένα στοιχείο της HTML που επιτρέπει την εμφάνιση μικρών πλαισίων πληροφορίας ή βοήθειας πάνω από το περιεχόμενο της σελίδας, χωρίς εξωτερικές βιβλιοθήκες ή σύνθετη JavaScript, και μπορεί να ενεργοποιηθεί ή να κλείσει αυτόματα ή χειροκίνητα, ανάλογα με τη ρύθμιση.					</p>
+				</section>
 
-    <body id="body">
-        <header class="header" id="header">
-            <h1 class="header-title">Exaples popover</h1>
-        </header>
+				<!-- Υποστήριξη Browser -->
+				<section class="section">
+					<h2>Browser compatibility</h2>
+					<p>Το popover υποστηρίζεται από τους περισσότερους browsers:</p>
+					<ul class="attribute-list">
+						<li>Chrome 114 και νεότεροι</li>
+						<li>Edge 114 και νεότεροι</li>
+						<li>Safari 17 και νεότεροι</li>
+						<li>Opera (τελευταίες εκδόσεις)</li>
+						<li>Firefox (υπό ανάπτυξη, διαθέσιμο με ρυθμίσεις πειραματικής λειτουργίας)</li>
+					</ul>
+					
+				</section>
 
-        <main class="main-content">
+				<!-- Παραδείγματα Χρήσης -->
+				<section class="section">
+					<h2>Παραδείγματα Χρήσης</h2>
+					<p>Μερικές περιπτώσεις όπου μπορεί να χρησιμοποιηθεί ένα popover σε μια ιστοσελίδα:</p>
+					<ul class="attribute-list">
+						<li>Προβολή σύντομης περιγραφής ή επεξήγησης όρων</li>
+						<li>Εμφάνιση βοήθειας σε πεδία φόρμας</li>
+						<li>Πρόσθετες πληροφορίες για προϊόντα ή υπηρεσίες</li>
+						<li>Εμφάνιση ειδοποιήσεων ή σχολίων χωρίς να ανοίγει νέο παράθυρο</li>
+						<li>Αναδυόμενες οδηγίες σε βήματα χρήσης ή εκμάθησης</li>
+					</ul>
+				</section>
 
-            <section class="general">
-                <h2 class="section-title">Gesneral popover</h2>
-                <button popovertarget="my-popover">Open Popover</button>
-                <div popover id="my-popover">Greetings, one and all!</div>
-            </section>
+				<!-- Ενότητα 1: popover attribute -->
+				<section class="section">
+					<h2>Το Χαρακτηριστικό <code>popover</code></h2>
+					<p>Το χαρακτηριστικό <code>popover</code> δηλώνει ότι ένα στοιχείο της HTML θα λειτουργεί ως popover. Μπορεί να έχει τις παρακάτω τιμές:</p>
+					<div class="attribute-list">
+						<ul>
+							<li><code>popover="auto"</code> – Κλείνει αυτόματα όταν κάνεις κλικ έξω</li>
+							<li><code>popover="manual"</code> – Παραμένει ανοιχτό μέχρι να το κλείσεις εσύ</li>
+							<li><code>popover</code> – Ισοδύναμο με <code>auto</code></li>
+						</ul>
+					</div>
 
-            <div class="examples-grid">
-                
-                <!-- Example 0: Simple Dropdown using native popover -->
-                <section class="items">
-                <h2 class="section-title">0. Απλό Dropdown Menu με native popover behavior</h2>
+					<div class="code-block">
+						&lt;div popover&gt;Παράδειγμα popover&lt;/div&gt;<br />
+						&lt;div popover="auto"&gt;Κλείνει όταν κάνεις κλικ έξω&lt;/div&gt;<br />
+						&lt;div popover="manual"&gt;Χρειάζεται ρητό κλείσιμο&lt;/div&gt;
+					</div>
 
-                <div class="dropdown-wrapper">
-                    <button popovertarget="dropdown0-menu" class="main-btn btn-with-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
-                    </svg>
-                    Menu
-                    </button>
+					<h3>Παράδειγμα Auto Popover</h3>
+					<div class="demo-area">
+						<button popovertarget="popover-auto">Άνοιγμα Auto Popover</button>
+					</div>
 
-                    <div id="dropdown0-menu" popover class="dropdown-menu">
-                    <ul class="menu-list">
-                        <li><a href="#" class="dropdown-link">Home</a></li>
-                        <li><a href="#" class="dropdown-link">About</a></li>
-                        <li><a href="#" class="dropdown-link">Services</a></li>
-                    </ul>
-                    </div>
-                </div>
-                </section>
+					<div id="popover-auto" popover="auto">
+						<div class="popover-header">Auto Popover</div>
+						<div class="popover-content">
+							Κλείνει αυτόματα όταν κάνεις κλικ έξω ή πατήσεις ESC.
+						</div>
+					</div>
 
+					<h3>Παράδειγμα Manual Popover</h3>
+					<div class="demo-area">
+						<button popovertarget="popover-manual">Άνοιγμα Manual Popover</button>
+					</div>
 
-                <!-- Example 1: Simple Dropdown Menu -->
-                <section class="items">
-                    <h2 class="section-title">1. Απλό Dropdown Menu</h2>
+					<div id="popover-manual" popover="manual">
+						<div class="popover-header">Manual Popover</div>
+						<div class="popover-content">
+							Δεν θα κλείσει αυτόματα — χρησιμοποίησε το κουμπί κλεισίματος ή το πλήκτρο ESC.
+						</div>
+						<button class="close-btn" popovertarget="popover-manual" popovertargetaction="hide">Κλείσιμο</button>
+					</div>
+				</section>
 
-                    <button popovertarget="dropdown1-menu" id="dropdown1-btn" class="main-btn btn-with-icon" aria-haspopup="menu" aria-expanded="false">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
-                        </svg>
-                        Menu
-                    </button>
+				<!-- Ενότητα 2: popovertarget -->
+				<section class="section">
+					<h2>Το Χαρακτηριστικό <code>popovertarget</code></h2>
+					<p>Το <code>popovertarget</code> συνδέει ένα κουμπί με ένα συγκεκριμένο popover μέσω του <code>id</code> του.</p>
 
-                    <nav id="dropdown1-menu" popover="auto" role="menu" class="dropdown-menu-absolute">
-                        <ul class="menu-list">
-                            <li><a href="#" class="dropdown-link">Home</a></li>
-                            <li><a href="#" class="dropdown-link">About</a></li>
-                            <li><a href="#" class="dropdown-link">Services</a></li>
-                        </ul>
-                    </nav>
-                </section>
+					<div class="code-block">
+						&lt;button popovertarget="my-popover"&gt;Άνοιγμα&lt;/button&gt;<br />
+						&lt;div id="my-popover" popover&gt;Περιεχόμενο&lt;/div&gt;
+					</div>
 
-                <!-- Example 2: Tooltip -->
-                <section class="items">
-                    <h2 class="section-title">2. Tooltip</h2>
-                    <button popovertarget="tooltip-popover" class="main-btn" aria-describedby="tooltip-popover">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
-                        </svg>
-                    </button>
-                    <div id="tooltip-popover" popover="manual" role="tooltip" class="tooltip-container tooltip-top">
-                        Αυτό είναι tooltip με Js!
-                    </div>
-                </section>
+					<h3>Παράδειγμα</h3>
+					<div class="demo-area">
+						<button popovertarget="target-demo">Εμφάνιση Popover</button>
+					</div>
 
-                <!-- Example 3: Cart Preview (using native popover) -->
-                <section class="items">
-                <h2 class="section-title">3. Cart Preview (Popover)</h2>
+					<div id="target-demo" popover>
+						<div class="popover-header">Συνδεδεμένο Popover</div>
+						<div class="popover-content">Αυτό το popover είναι συνδεδεμένο με το κουμπί μέσω του χαρακτηριστικού <code>popovertarget</code>.</div>
+					</div>
+				</section>
 
-                <button popovertarget="cart-popover" class="main-btn btn-with-icon" aria-label="Open cart with 2 items">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="icon">
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-                    />
-                    </svg>
-                    <span class="sr-only">Open cart</span>
-                    Cart (2)
-                </button>
+				<!-- Ενότητα 3: popovertargetaction -->
+				<section class="section">
+					<h2>Το Χαρακτηριστικό <code>popovertargetaction</code></h2>
+					<p>
+						Το χαρακτηριστικό αυτό καθορίζει ποια ενέργεια εκτελείται όταν πατηθεί το κουμπί που στοχεύει το popover:
+					</p>
 
-                <div id="cart-popover" popover="auto" role="dialog" aria-labelledby="cart-title" class="cart-popover-container">
-                    <p id="cart-title" class="cart-title">Your cart</p>
-                    <ul class="cart-list">
-                    <li class="cart-item"><span>Laptop</span><span>$999</span></li>
-                    <li class="cart-item"><span>Mouse</span><span>$49</span></li>
-                    </ul>
-                    <button class="checkout-btn">Checkout</button>
-                </div>
-                </section>
+					<div class="attribute-list">
+						<ul>
+							<li><code>toggle</code> – Εναλλάσσει το άνοιγμα και το κλείσιμο (προεπιλογή)</li>
+							<li><code>show</code> – Μόνο ανοίγει το popover</li>
+							<li><code>hide</code> – Μόνο το κλείνει</li>
+						</ul>
+					</div>
 
-               <!-- Example 4: Modal Dialog (Native) -->
-                <section class="items">
-                <h2 class="section-title">4. Modal Dialog (Native)</h2>
+					<div class="demo-area">
+						<button popovertarget="action-demo" popovertargetaction="show">Εμφάνιση</button>
+						<button popovertarget="action-demo" popovertargetaction="hide">Απόκρυψη</button>
+						<button popovertarget="action-demo" popovertargetaction="toggle">Εναλλαγή</button>
+					</div>
 
-                <button id="open-dialog" class="main-btn">Open Dialog</button>
-
-                <dialog id="myDialog" class="dialog-container" aria-labelledby="dialog-title" aria-describedby="dialog-desc">
-                    <h2 id="dialog-title" class="dialog-title">Native Dialog</h2>
-                    <p id="dialog-desc" class="dialog-desc">Αυτό είναι modal χωρίς custom JS libraries 🎉</p>
-                    <form method="dialog" class="dialog-actions">
-                    <button value="cancel" class="dialog-btn-cancel">Cancel</button>
-                    <button value="ok" class="dialog-btn-ok">OK</button>
-                    </form>
-                </dialog>
-
-                <script>
-                    const openBtn = document.getElementById('open-dialog');
-                    const dialog = document.getElementById('myDialog');
-
-                    openBtn.addEventListener('click', () => dialog.showModal());
-                    dialog.addEventListener('close', () => {
-                    // optional: handle returnValue ("cancel" | "ok")
-                    console.log('Dialog closed with:', dialog.returnValue);
-                    });
-                </script>
-                </section>
-
-            </div>
-
-            <hr class="divider" />
-
-            <!-- Information Sections -->
-            <section class="details">
-                <div class="info-section">
-                    <div class="info-left">
-                        <p class="info-title">Γιατί popover?</p>
-                        <p class="info-text">Ο λόγος που μπορείς να χρησιμοποιήσεις ένα popover είναι κυρίως για βελτιωμένη εμπειρία χρήστη (UX) και καλύτερη διαχείριση πληροφοριών στη σελίδα.</p>
-                        <p class="info-note">
-                            Το popover είναι <span class="font-bold">πειραματικό</span> και διαφορετικά browsers το υλοποιούν διαφορετικά.<br />
-                            Η θέση και το layout του popover υπολογίζονται από τον browser και δεν μπορείς να τα override πλήρως με CSS. <br />
-                            Οπότε δεν υπάρχει "universal CSS" που να κάνει το native popover να εμφανίζεται ακριβώς ίδιο σε Chrome, Firefox και Safari. Οπότε για positioning περναμε JS.
-                        </p>
-                    </div>
-                    <div class="info-right">
-                        <p>1. Εμφάνιση πληροφοριών χωρίς ανανέωση σελίδας</p>
-                        <p>2. Εστίαση στο context</p>
-                        <p>3. Δυνατότητα αλληλεπίδρασης</p>
-                        <p>4. Μικρότερο "οπτικό φορτίο"</p>
-                    </div>
-                </div>
-
-                <hr class="divider" />
-
-                <div class="info-section hidden">
-                    <div class="info-left">
-                        <p class="info-title">Γιατί dialog?</p>
-                        <p class="info-text">Ο λόγος που μπορείς να χρησιμοποιήσεις ένα dialog είναι κυρίως όταν χρειάζεσαι την πλήρη προσοχή του χρήστη και θέλεις να του δώσεις επιλογές ή να συλλέξεις δεδομένα.</p>
-                    </div>
-                    <div class="info-right">
-                        <p>1. Εστίαση στην ενέργεια – ο χρήστης σταματά ό,τι κάνει και επικεντρώνεται στο dialog.</p>
-                        <p>2. Δυνατότητα εισαγωγής δεδομένων – φόρμες, επιβεβαιώσεις ή επιλογές γίνονται με πιο ξεκάθαρο τρόπο.</p>
-                        <p>3. Σαφής ροή εργασίας – το dialog καθοδηγεί τον χρήστη σε ένα συγκεκριμένο επόμενο βήμα.</p>
-                        <p>4. Υποχρεωτική αλληλεπίδραση – ο χρήστης πρέπει να το κλείσει ή να επιλέξει κάτι για να συνεχίσει.</p>
-                    </div>
-                </div>
-
-                <hr class="divider hidden" />
-
-                <div class="info-section hidden">
-                    <div class="info-left">
-                        <p class="info-title">Γιατί popup?</p>
-                        <p class="info-text">Ο λόγος που μπορείς να χρησιμοποιήσεις ένα popup είναι κυρίως για άμεση ειδοποίηση ή γρήγορη δράση που δεν απαιτεί μεγάλη αλληλεπίδραση.</p>
-                    </div>
-                    <div class="info-right">
-                        <p>1. Ειδοποιήσεις και προειδοποιήσεις – ενημερώνεις άμεσα τον χρήστη για κάτι σημαντικό.</p>
-                        <p>2. Εμφάνιση περιεχομένου πάνω από τη σελίδα – χωρίς να χρειάζεται να αλλάξει context ή να κάνει scroll.</p>
-                        <p>3. Γρήγορες ενέργειες – κουμπιά, links ή επιλογές που εκτελούνται άμεσα.</p>
-                        <p>4. Ορατότητα – τραβάει το μάτι του χρήστη αμέσως, κάτι χρήσιμο σε επείγουσες περιπτώσεις.</p>
-                    </div>
-                </div>
-
-                <hr class="divider hidden" />
-
-                <!-- Comparison Table -->
-                <div id="comparison-table" class="comparison-table hidden">
-                    <div class="comparison-table-header">
-                        <p class="table-header-cell">Χαρακτηριστικό</p>
-                        <p class="table-header-cell">Popover</p>
-                        <p class="table-header-cell">Dialog</p>
-                        <p class="table-header-cell">Popup</p>
-                    </div>
-                    <div id="comparison-rows"></div>
-                </div>
-            </section>
-        </main>
-    </body>
+					<div id="action-demo" popover>
+						<div class="popover-header">Παράδειγμα Ενεργειών</div>
+						<div class="popover-content">
+							Δοκίμασε τα κουμπιά παραπάνω για να δεις πώς λειτουργεί κάθε ενέργεια.
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+	</body>
 </html>
